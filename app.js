@@ -39,7 +39,7 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
-let response = 0;
+let responseIs = 0;
 
 function bigApp() {
 	let playlistId = parsePlaylist();
@@ -79,9 +79,9 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      //console.log(this.response);
-	      response = this.response;
-	      response = response["items"];
-	      console.log(response);
+	      responseIs = this.response;
+	      responseIs = responseIs["items"];
+	      console.log(responseIs);
 	    }
 	   }
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
@@ -89,7 +89,7 @@ function bigApp() {
 
 	   let songIds = '';
 
-           response.forEach(function(r) {
+           responseIs.forEach(function(r) {
 	     songIds = songIds + r["track"]["id"] + ',';
            })  
 
