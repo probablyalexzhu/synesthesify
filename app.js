@@ -3,7 +3,7 @@ const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42';
 
 
 
-function parsePlaylist() {
+/*function parsePlaylist() {
   let playlistURL = document.getElementById("myText").value; let playListId=0;
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
@@ -18,7 +18,28 @@ function parsePlaylist() {
   }
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
   return playlistId;
+}*/
+
+function parsePlaylist() {
+  let playlistURL = 'https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1'; let playlistId=0;
+  if (playlistURL.includes("https://open.spotify.com/playlist/")) {
+    playlistId = playlistURL.split("/");
+    playlistId = playlistId[4].split("?");
+
+  } else if (playlistURL.includes("https://open.spotify.com/user/")) {
+    playlistId = playlistURL.split("/");
+    playlistId = playlistId[6].split("?");
+
+  } else {
+    return "You entered an invalid playlist URL!";
+  }
+  return playlistId[0];
+  //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
+let playlistId = parsePlaylist();
+console.log(playlistId);
+
+
 
 let playlistId = parsePlaylist();
 console.log(playlistId);
