@@ -24,7 +24,7 @@ class songData{
         this.color = a; //(string of form(rgb(x,y,z))) 0<=x,y,z<=255
         this.abstractness=b; //0-only image,1-image+shapes,2-a few shapes, no image, 3- lots of shapes
         this.shape = c; //1-square,2-rectangle,3-circle
-        this.texture=d; //level of gradient
+        this.texture=d; //0-10, 0:dx is as far apart as possible,10-dx is super close together (steep gradient)
     }
 }
 
