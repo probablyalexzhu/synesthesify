@@ -60,12 +60,13 @@ function bigApp() {
 	  }
 	})
 	*/
-
+	token = "BQAwyTSiQDl7MFunTtE3Kq8GE18rQ4lFV8C1O17K_ZGJJwJtmBEZschB-0d6hohe_ZujmtJTwk6Z0_FAF9N8bCabyMjyydxFZkyxb3i5PhhoDLWGY97ZLDbvjyNoPacrKreOxYOnPNaVexX6enNunXCJ";
 	function getSongsFromPlaylist(e){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
 	  var xhr = new XMLHttpRequest();
 	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId , true);
+	  xhr.setRequestHeader("Authorization", "Bearer " + token);
 	  xhr.send();
 
 	  //  Check here for new state and HTTP response code
