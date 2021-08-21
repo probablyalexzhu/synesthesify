@@ -32,9 +32,7 @@ function randomNumber(size){
     const h = Math.random()*size+1;
     return Math.floor(h);
 }
-function copyImageToCanvas() {
-    
-}
+
 
 function getSongArray(){
     
@@ -55,16 +53,19 @@ function getSectionCoordinates(numberOfSongs){
         let randomy = randomNumber(canvasSize-size)-1;
         arr.push(new rectangle(randomx,randomy,randomx+size,randomy=size));
     }
-    console.log(arr);
+    return arr;
 }
 
 // where arr is an array containing all the yet to use songs
-function drawFromArray(arr){
-    const coordarray = getSectionCoordinates(arr.length);
-    for (var i = 0; i<=arr.length; i++){
-        draw(arr[i], coordarray[i]);
+function drawFromArray(){
+    const coordarray = getSectionCoordinates(songs.length);
+    for (var i = 0; i<=songs.length; i++){
+        draw(songs[i], coordarray[i]);
     }
 }
 function draw(song, coords){
-
+    
+}
+function copyImageToCanvas() {
+    
 }
