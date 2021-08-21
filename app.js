@@ -19,6 +19,7 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
+console.log(playlistId);
 /**
 let request = require("request");
 let token = "Bearer ";
