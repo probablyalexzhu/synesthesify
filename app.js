@@ -26,7 +26,7 @@ let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
 request({url:playlist_request, headers:{"Authorization":token}}, function(err, res) {
   if (res) {
     let songs = JSON.parse(res.body);
-    console.log("song: " + songs.name;
+    console.log("song: " + songs.name);
     songs.tracks.forEach (function(track) {
       console.log(track.track.name);
     });
