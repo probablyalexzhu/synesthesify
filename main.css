@@ -15,7 +15,7 @@
       margin: auto;
       width: 100%;
       font-size:36px;
-      color:antiquewhite;
+      color: #FDF2EB;
       font-family: "Tahoma";
     }
 
@@ -29,7 +29,7 @@
       font-size: 20px;
       margin: 4px 2px;
       cursor: pointer;
-      color:antiquewhite;
+      color: #FDF2EB;
       font-family: "Tahoma";
       position: relative;
       display: inline-block;
@@ -43,12 +43,11 @@
     
 .button1 {
       background-color: #3FBC90;
-      box-shadow: 3px 5px 5px #888888;
       border-radius: 2px;
       transition: all 1s ease;
       transform: scale(1);
 }
-.button1:hover {transform: scale(1.5) perspective(1px)}/* Green */
+.button1:hover {transform: scale(1.1) perspective(1px)}/* Green */
 
 .button2 {background-color: #008CBA;} /* Blue */
 
@@ -58,7 +57,7 @@
   opacity:90%;
   font-size:24px;
   font-family: "Tahoma";
-  background-color:antiquewhite;
+  background-color: #FDF2EB;
 }
 
 div.transbox {
@@ -81,7 +80,7 @@ div.transbox {
 .explanation {
   text-align: left;
   font-size: 20px;
-  color:antiquewhite;
+  color: #FDF2EB;
   padding-right:100px;
   padding-left:100px;
 }
@@ -89,7 +88,7 @@ div.transbox {
 .explanation-header {
   text-align: left;
   font-size: 40px;
-  color:antiquewhite; 
+  color: #FDF2EB; 
   padding-right:100px;
   padding-left:100px;
 }
