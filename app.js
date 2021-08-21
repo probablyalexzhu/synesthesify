@@ -52,7 +52,6 @@ function bigApp() {
 	    "timeout": 0,
 	    "headers": {
 		"Content-Type": "application/json"
-		"Authorization" : token
 	    },
 	};
 
