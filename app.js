@@ -29,12 +29,12 @@ function parsePlaylist() {
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
-    document.getElementById("playlist-id").innerHTML = "";
+    document.getElementById("playlist-id").innerHTML = "Loading playlist...";
 
   } else if (playlistURL.includes("https://open.spotify.com/user/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[6].split("?");
-    document.getElementById("playlist-id").innerHTML = "";
+    document.getElementById("playlist-id").innerHTML = "Loading playlist...";
 
   } else {
     document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
