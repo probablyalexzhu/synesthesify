@@ -46,9 +46,9 @@ function bigApp() {
 
 
 
-	/**
+	
 	let request = require("request");
-	let token = "Bearer ";
+	let token = "BQDUQDglDL4v-2Lc3-L2YPyNgROVwu5w4KhePhF5pPKV0oMAcXeBM-wEz9xkOD-5Vak4yiufGBnsO7-_45n-m0VZ39373F1rgbXnX2GVlmkcbp7TXPjvlcVxrJin37V7NenW5yRO0G2KUGovobIFIyPa";
 	let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
 
 	request({url:playlist_request, headers:{"Authorization":token}}, function(err, res) {
@@ -60,8 +60,8 @@ function bigApp() {
 	    });
 	  }
 	})
-	*/
-
+	
+/**
 	function getSongsFromPlaylist(e){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
@@ -82,9 +82,10 @@ function bigApp() {
 	      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
 	      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
 	      */
+	*/
 	    }
 	  }
 	}
 
-	getSongsFromPlaylist(playlistId)
+	//getSongsFromPlaylist(playlistId)
 }
