@@ -8,17 +8,19 @@ function parsePlaylist() {
   let playlistURL = document.getElementById("enterLink").value; let playlistId=0;
   let embedURL = playlistURL.slice(0,24) + "/embed" + playlistURL.slice(24);
   document.getElementById("embed").src = embedURL;
-  document.getElementById("embed").style.visibility = "visible";
+  
   //console.log(embedURL);
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
     document.getElementById("playlist-id").innerHTML = "";
+    document.getElementById("embed").style.visibility = "visible";
 
   } else if (playlistURL.includes("https://open.spotify.com/user/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[6].split("?");
     document.getElementById("playlist-id").innerHTML = "";
+    document.getElementById("embed").style.visibility = "visible";
 
   } else {
     document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
