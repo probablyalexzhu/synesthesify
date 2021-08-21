@@ -1,2 +1,2 @@
 # JavaScript-SpotifyAPI
-Hackathon project :)
+Hackathon project :) Transforms Spotify playlists into abstract art.
