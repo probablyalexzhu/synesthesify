@@ -3,6 +3,27 @@ const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42';
 
 var songFeaturesArray = [];
 
+function getToken() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST","https://accounts.spotify.com/api/token/", true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.setRequestHeader('Authorization', 'Basic' + btoa(clientId + ':' + clientSecret));
+	xhr.setRequestHeader('Origin', 'https://probablyalexzhu.github.io/synesthesify/');
+	var params = {
+		"grant_type" : "client_credentials",
+	}
+	xhr.send(params);
+	
+	xhr.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+			const tokenData = this.responseText;
+			console.log(tokenData.access_token);
+	    }
+	
+	}
+	
+}
+
 /*function parsePlaylist() {
   let playlistURL = document.getElementById("myText").value; let playListId=0;
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
@@ -45,6 +66,7 @@ function parsePlaylist() {
 }
 
 function bigApp() {
+	getToken();
 	let playlistId = parsePlaylist();
 	console.log(playlistId);
 
