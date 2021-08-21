@@ -8,7 +8,6 @@ function parsePlaylist() {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
     document.getElementById("playlist-id").innerHTML = playlistId[0];
-    alert("test");
   } else {
     document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
   }
