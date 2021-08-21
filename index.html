@@ -1,23 +1,77 @@
 <!DOCTYPE html>
 <html>
+  
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .parallax {
+      /* The image used */
+      background-image: url("background.png");
+    
+      /* Set a specific height */
+      min-height: 500px; 
+    
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      font-size:50px;
+      font-family: "Tahoma";
+    }
+</style>
+<style>
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    .button1 {background-color: #4CAF50;} /* Green */
+    .button2 {background-color: #008CBA;} /* Blue */
+    </style>
+</head>
+
 <body>
 
-<img id="logo" src="logo.png" alt="Synesthesify Logo">
-  
+
+
+<div class="parallax">
+
+<div style="width:fit-content;height:100px;background-color:rgb(255, 255, 255)"></div>
+
+<img src="logo.png" alt="Synesthesify Logo">
+
 <br>
-  
+
 Spotify Playlist Link: <input type="text" id="enterLink" value="">
 
 <p>Input the Spotify playlist link of your desired playlist.</p>
   
-<button id="submit" onclick="bigApp()">Submit</button>
+<button class="button button1"onclick="bigApp()">Submit</button>
   
+</p>
+
 <p id="playlist-id"></p>
   
+<p id="result"></p>
+
 <iframe id="embed" src=embedURL width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="visibility: hidden"></iframe>
 
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/draw.js"></script>
-  
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="draw.js"></script>
+
+</div>
+
 </body>
 </html>
