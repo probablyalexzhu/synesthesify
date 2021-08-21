@@ -61,7 +61,7 @@ function bigApp() {
 	  }
 	})
 	
-/**
+	/**
 	function getSongsFromPlaylist(e){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
@@ -77,15 +77,15 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
-	      /**
+	      
 	      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
 	      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
 	      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
-	      */
-	*/
+	      
+	
 	    }
 	  }
 	}
-
+	*/
 	//getSongsFromPlaylist(playlistId)
 }
