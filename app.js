@@ -77,7 +77,7 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
-	      response = response["items"];
+	      response = this.response["items"];
 
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
 //document.getElementById("parsed").innerHTML = response[0]["track"]["id"];
