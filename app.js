@@ -60,7 +60,7 @@ function bigApp() {
 	  }
 	})
 	*/
-	token = "BQABHmWeHaBMD5qlmKWzAOy7QctA3b-HFPUrhBT6ne7iyyqJpPEagKpBJM-wEZq40ejC1pl8A2dvXKz9EWrlbRrlkus0SS_EBkREqhdpjzhAWgPa87YX84LIXsixzeGMCa7wLL3Z0VXrmk8Mz0Mjx_aK";
+	token = "BQAm_h_FtHQH4bHUTbqbBeenbgOVs_3EW5Ipr59qevj1axziW-ejg8Df7TzJ0HMfdI0E4_D1GYZbiHB1wqo0KHJ1_NKSMjRPvvYQfjB6I0xqHVugHb4rNqND7vP_Nl6eo15E9UCrv6yTjIrHeCNDBbTh";
 	function getSongsFromPlaylist(e){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
