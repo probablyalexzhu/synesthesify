@@ -60,7 +60,7 @@ function bigApp() {
 	  }
 	})
 	*/
-	token = "BQDdYbSszeODYXgc5jhxrip7Y-PFoq-C9AEOVh9FYjP63wB_BByMHzUZQeDrOPw02tgqBe07Ps_KHAHydx5jE4ejKmZlj3-Bn2uk4CjL2VJ0D8ru0tlyBzdmtcC2JSpUzRTASHC2N-z96MGicu6MpCWJ";
+	let token = "BQDdYbSszeODYXgc5jhxrip7Y-PFoq-C9AEOVh9FYjP63wB_BByMHzUZQeDrOPw02tgqBe07Ps_KHAHydx5jE4ejKmZlj3-Bn2uk4CjL2VJ0D8ru0tlyBzdmtcC2JSpUzRTASHC2N-z96MGicu6MpCWJ";
 	function getSongsFromPlaylist(){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request
@@ -77,19 +77,19 @@ function bigApp() {
 	      //alert(this.response);
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
-	      console.log(this.response);
+	      //console.log(this.response);
 	      
 	      let response = JSON.parse(this.response);
-	      console.log(typeof response);
+	      //console.log(typeof response);
 	      response = response["items"];
 	      
-	      console.log(typeof response);
+	      //console.log(typeof response);
 	      
 	      response.forEach(function(r) {
 	      	songIds = songIds + r["track"]["id"] + ',';
 		console.log(r["track"]["id"]);
               })
-	      console.log(songIds);
+	      //console.log(songIds);
 	    }
 	   }
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
@@ -110,4 +110,24 @@ function bigApp() {
 	}
 
 	getSongsFromPlaylist()
+	
+	function getSongsFeatures() {
+	  var xhr = new XMLHttpRequest();
+	  songIds = encodeURI(songIds);
+	  xhr.open("GET","https://api.spotify.com/v1/audio-features?ids=" + songIds, true);
+	  xhr.setRequestHeader("Authorization", "Bearer " + token);
+	  xhr.send();
+		
+	  xhr.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      //alert(this.response);
+	      //console.log(this.response);
+	      //console.log(JSON.parse(this.response).name);
+	      //console.log(this.response);
+	      
+	      console.log(this.response);
+	      console.log(typeof this.response);
+	    }
+	  }
+	}
 }
