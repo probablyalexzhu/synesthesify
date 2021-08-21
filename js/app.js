@@ -5,7 +5,7 @@ var songFeaturesArray = [];
 var finalToken = '';
 
 function parsePlaylist() {
-  let playlistURL = document.getElementById("myText").value; let playlistId=0;
+  let playlistURL = document.getElementById("enterLink").value; let playlistId=0;
   let embedURL = playlistURL.slice(0,24) + "/embed" + playlistURL.slice(24);
   document.getElementById("embed").src = embedURL;
   document.getElementById("embed").style.visibility = "visible";
