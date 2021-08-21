@@ -1,4 +1,6 @@
 // david's code
+let playlistId = 0;
+
 function parsePlaylist() {
     playlistURL = document.getElementById("myText").value;
     if (playlistURL.includes("https://open.spotify.com/playlist/")) {
