@@ -2,44 +2,7 @@ const clientId = '8efe66c9553141b682d78450628421a1';
 const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42';
 
 var songFeaturesArray = [];
-
-function getToken() {
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST","https://accounts.spotify.com/api/token/", true);
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	xhr.setRequestHeader('Authorization', 'Basic' + btoa(clientId + ':' + clientSecret));
-	xhr.setRequestHeader('Origin', 'https://probablyalexzhu.github.io/synesthesify/');
-	var params = {
-		"grant_type" : "client_credentials",
-	}
-	xhr.send(params);
-	
-	xhr.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-			const tokenData = this.responseText;
-			console.log(tokenData.access_token);
-	    }
-	
-	}
-	
-}
-
-/*function parsePlaylist() {
-  let playlistURL = document.getElementById("myText").value; let playListId=0;
-  if (playlistURL.includes("https://open.spotify.com/playlist/")) {
-    playlistId = playlistURL.split("/");
-    playlistId = playlistId[4].split("?");
-    document.getElementById("playlist-id").innerHTML = playlistId[0];
-  } else if (playlistURL.includes("https://open.spotify.com/user/")) {
-    playlistId = playlistURL.split("/");
-    playlistId = playlistId[6].split("?");
-    document.getElementById("playlist-id").innerHTML = playlistId[0];
-  } else {
-    document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
-  }
-  //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
-  return playlistId;
-}*/
+var finalToken = '';
 
 function parsePlaylist() {
   let playlistURL = document.getElementById("myText").value; let playlistId=0;
@@ -66,13 +29,31 @@ function parsePlaylist() {
 }
 
 function bigApp() {
-	getToken();
 	let playlistId = parsePlaylist();
+
+	const getToken = async () => {
+	
+		const result = await fetch('https://accounts.spotify.com/api/token', {
+			method: 'POST',
+			headers: {
+				'Content-Type' : 'application/x-www-form-urlencoded', 
+				'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+			},
+			body: 'grant_type=client_credentials'
+		});
+	
+		const data = await result.json();
+		finalToken = data.access_token;
+		console.log(typeof finalToken[0]);
+		getSongsFromPlaylist(finalToken);
+	}
+
 	console.log(playlistId);
+	getToken();
 
+	
 
-
-
+	
 	/**
 	let request = require("request");
 	let token = "Bearer ";
@@ -88,13 +69,13 @@ function bigApp() {
 	})
 	*/
 
-	let token = "BQB1lacbK_D4AKGmsO2JwyqGLul-Z_Xd9bDphOBswlZjreLpDY3ZyNbmqlKfQ_DsNI2EkUY-sQUUtLHTj5NEUI_rI7LOLV3VGAg5bShV8R-8l1yT8njaCnKP-fwEE7kR4MpifVP30sWp6HVhS0wT-VYF";
-	function getSongsFromPlaylist(){
+	
+	function getSongsFromPlaylist(token){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request
 	  
 		var songIds = '';
-
+		
 	  var xhr = new XMLHttpRequest();
 	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?fields=items%28track%28id%29%29" , true);
 	  xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -120,7 +101,7 @@ function bigApp() {
 		console.log(r["track"]["id"]);
               })
 			  
-			  getSongsFeatures(songIds);
+			  getSongsFeatures(songIds, token);
 	    }
 	   }
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
@@ -145,7 +126,7 @@ function bigApp() {
 
 	getSongsFromPlaylist()
 	
-	function getSongsFeatures(songIds) {
+	function getSongsFeatures(songIds, token) {
 	  var xhr = new XMLHttpRequest();
 
 		console.log(songIds);
