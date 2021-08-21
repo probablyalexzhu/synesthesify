@@ -63,7 +63,8 @@ function bigApp() {
 	token = "BQAm_h_FtHQH4bHUTbqbBeenbgOVs_3EW5Ipr59qevj1axziW-ejg8Df7TzJ0HMfdI0E4_D1GYZbiHB1wqo0KHJ1_NKSMjRPvvYQfjB6I0xqHVugHb4rNqND7vP_Nl6eo15E9UCrv6yTjIrHeCNDBbTh";
 	function getSongsFromPlaylist(){
 		//  Create the XHR, intitalize the connection with open()) 
-		//  and send the request  
+		//  and send the request
+	  let songIds = '';
 	  var xhr = new XMLHttpRequest();
 	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?fields=items%28track%28id%29%29" , true);
 	  xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -77,19 +78,18 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
-	      var response = this.response;
-	      response = response["items"];
-	      console.log(response);
+	      
+	      this.response["items"].forEach(function(r) {
+	      	songIds = songIds + r["track"]["id"] + ',';
+              })  
 	    }
 	   }
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
 //document.getElementById("parsed").innerHTML = response[0]["track"]["id"];
 
-	   let songIds = '';
+	  
 
-           response.forEach(function(r) {
-	     songIds = songIds + r["track"]["id"] + ',';
-           })  
+           
 
       console.log(songIds);
 	      /**
