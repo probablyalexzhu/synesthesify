@@ -76,26 +76,27 @@ function bigApp() {
 	      //alert(this.response);
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
-	      console.log(this.responseText);
-	      let response = this.responseText;
+	      console.log(this.response);
+	      let response = this.response;
 	      response = response["items"];
-
+	    }
+	   }
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
 //document.getElementById("parsed").innerHTML = response[0]["track"]["id"];
 
-	      let songIds = '';
+	   let songIds = '';
 
-	      response.forEach(function(r) {
-	      	songIds = songIds + r["track"]["id"] + ',';
-	      })  
+           response.forEach(function(r) {
+	     songIds = songIds + r["track"]["id"] + ',';
+           })  
 
-	      console.log(songIds);
+      console.log(songIds);
 	      /**
 	      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
 	      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
 	      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
 	      */
-	    }
+	    
 	  }
 	}
 
