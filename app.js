@@ -45,6 +45,10 @@ const APIController = (function() {
 
         const data = await result.json();
         document.getElementById("result").innerHTML = data
+        
+        // pls work
+        console.log(data.categories.items);
+        
         return data.categories.items;
         
     }
