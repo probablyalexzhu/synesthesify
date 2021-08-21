@@ -44,9 +44,23 @@ function bigApp() {
 	console.log(playlistId);
 
 
+	let token = "BQDUQDglDL4v-2Lc3-L2YPyNgROVwu5w4KhePhF5pPKV0oMAcXeBM-wEz9xkOD-5Vak4yiufGBnsO7-_45n-m0VZ39373F1rgbXnX2GVlmkcbp7TXPjvlcVxrJin37V7NenW5yRO0G2KUGovobIFIyPa";
 
+	var settings = {
+	    "url": "https://api.spotify.com/v1/playlists/" + playlistId,
+	    "method": "get",
+	    "timeout": 0,
+	    "headers": {
+		"Content-Type": "application/json"
+		"Authorization" : token
+	    },
+	};
 
-	
+	$.ajax(settings).done(function (response) {
+	    document.getElementById("result").innerHTML = response;
+	});
+
+	/**
 	let request = require("request");
 	let token = "BQDUQDglDL4v-2Lc3-L2YPyNgROVwu5w4KhePhF5pPKV0oMAcXeBM-wEz9xkOD-5Vak4yiufGBnsO7-_45n-m0VZ39373F1rgbXnX2GVlmkcbp7TXPjvlcVxrJin37V7NenW5yRO0G2KUGovobIFIyPa";
 	let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
@@ -61,7 +75,7 @@ function bigApp() {
 	  }
 	})
 	
-	/**
+	
 	function getSongsFromPlaylist(e){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
