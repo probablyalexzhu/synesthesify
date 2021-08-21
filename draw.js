@@ -1,40 +1,17 @@
+//important 
 var image = document.querySelector("img");
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
+const canvasSize = 500; //500x500 pixel size
 let songsFile = require('./data.json');
 var songs = [];
 
-
-function copyImageToCanvas() {
-    
-}
-
-function location(){
-
-}
-// where arr is an array containing all the yet to use songs
-function remaining(arr){
-    const coordarray = getSectionCoordinates(arr.length);
-    for (var i = 0; i<=arr.length; i++){
-        draw(arr[i], coordarray[i]);
-    }
-}
-function draw(song, coords){
-
-}
-
-const canvasSize = 500;
-
-function randomNumber(size){
-    const h = Math.random()*size+1;
-    return Math.floor(h);
-}
+//classes
 class coordinate{
     constructor(x,y){
         this.x=x; this.y=y;
     }
 }
-
 class rectangle{
     //tl is top left, br = bottom right
     constructor (a,b,c,d){
@@ -42,6 +19,23 @@ class rectangle{
         this.br = new coordinate(c,d);
     }
 }
+class songData{
+    constructor(a,b,c,d){
+        this.color = a; this.abstractness=b; this.shape = c;this.texture=d;
+    }
+}
+
+
+
+//methods
+function randomNumber(size){
+    const h = Math.random()*size+1;
+    return Math.floor(h);
+}
+function copyImageToCanvas() {
+    
+}
+
 function getSectionCoordinates(numberOfSongs){
     const sqr = Math.floor(Math.sqrt(numberOfSongs))
     const size = Math.floor(canvasSize/sqr);
@@ -59,4 +53,14 @@ function getSectionCoordinates(numberOfSongs){
     }
     console.log(arr);
 }
-getSectionCoordinates(18)
+
+// where arr is an array containing all the yet to use songs
+function drawFromArray(arr){
+    const coordarray = getSectionCoordinates(arr.length);
+    for (var i = 0; i<=arr.length; i++){
+        draw(arr[i], coordarray[i]);
+    }
+}
+function draw(song, coords){
+
+}
