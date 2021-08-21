@@ -10,13 +10,7 @@
 
 <body>
 
-
-
-<div class="parallax">
-
-<div style="width:fit-content;height:100px;background-color:rgb(255, 255, 255)"></div>
-
-<img src="logo.png" alt="Synesthesify Logo">
+<img id="logo" src="logo.png" alt="Synesthesify Logo">
 
 <br>
 
@@ -24,13 +18,11 @@ Spotify Playlist Link: <input type="text" id="enterLink" value="">
 
 <p>Input the Spotify playlist link of your desired playlist.</p>
   
-<button onclick="bigApp()">Submit</button>
+<button class="button button1" onclick="bigApp()">Submit</button>
   
 </p>
 
 <p id="playlist-id"></p>
-  
-<p id="result"></p>
 
 <iframe id="embed" src=embedURL width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" style="visibility: hidden"></iframe>
 
