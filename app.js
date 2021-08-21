@@ -23,6 +23,7 @@ var songFeaturesArray = [];
 function parsePlaylist() {
   let playlistURL = document.getElementById("myText").value; let playlistId=0;
   let embedURL = playlistURL.slice(0,24) + "/embed" + playlistURL.slice(24);
+  document.getElementById("embed").src = embedURL;
   //console.log(embedURL);
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
