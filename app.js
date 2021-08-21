@@ -130,4 +130,6 @@ function bigApp() {
 	    }
 	  }
 	}
+	
+	getSongsFeatures();
 }
