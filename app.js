@@ -65,7 +65,7 @@ function bigApp() {
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
 	  var xhr = new XMLHttpRequest();
-	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?=items%28track%28id%29%29" , true);
+	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?fields=items%28track%28id%29%29" , true);
 	  xhr.setRequestHeader("Authorization", "Bearer " + token);
 	  xhr.send();
 
