@@ -36,6 +36,10 @@ function copyImageToCanvas() {
     
 }
 
+function getSongArray(){
+    
+}
+
 function getSectionCoordinates(numberOfSongs){
     const sqr = Math.floor(Math.sqrt(numberOfSongs))
     const size = Math.floor(canvasSize/sqr);
