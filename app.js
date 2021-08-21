@@ -49,7 +49,7 @@ function getSongsFromPlaylist(e){
       //alert(this.response);
       //console.log(this.response);
       //console.log(JSON.parse(this.response).name);
-      console.log(response);
+      console.log(this.response);
       /**
       logMessage("Album Name: " + JSON.parse(this.response).name, "output");
       logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
