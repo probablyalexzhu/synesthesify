@@ -129,9 +129,11 @@ function getSongArray(){
         
         songs[i] = new songData(a,b,c,d,e,f)
     }
+    console.log(songs[0]);
 }
-getSongArray();
-console.log(songs);
+
+
+
 function getSectionCoordinates(numberOfSongs){
     const sqr = Math.floor(Math.sqrt(numberOfSongs))
     const size = Math.floor(canvasSize/sqr);
