@@ -19,6 +19,7 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
+/**
 let request = require("request");
 let token = "Bearer ";
 let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
@@ -32,3 +33,17 @@ request({url:playlist_request, headers:{"Authorization":token}}, function(err, r
     });
   }
 })
+*/
+
+var settings = {
+    "url": "https://v1.nocodeapi.com/probablyalexzhu/spotify/bTdAKADjbYIsNzlN/playlists?id=" + playlistId,
+    "method": "get",
+    "timeout": 0,
+    "headers": {
+        "Content-Type": "application/json"
+    },
+};
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
