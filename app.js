@@ -97,7 +97,7 @@ function bigApp() {
 	      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
 	      */
 	    
-	  }
+	
 	}
 
 	getSongsFromPlaylist(playlistId)
