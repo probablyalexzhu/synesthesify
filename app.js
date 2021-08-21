@@ -20,7 +20,7 @@ function parsePlaylist() {
   return playlistId;
 }
 
-let playlistId = parsePlaylist();
+playlistId = parsePlaylist();
 console.log(playlistId);
 
 /**
