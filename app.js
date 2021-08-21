@@ -9,7 +9,7 @@ function parsePlaylist() {
     playlistId = playlistId[4].split("?");
     document.getElementById("playlist-id").innerHTML = playlistId[0];
   } else {
-    document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!"
+    document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
   }
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
