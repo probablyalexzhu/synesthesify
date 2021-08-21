@@ -35,17 +35,27 @@ request({url:playlist_request, headers:{"Authorization":token}}, function(err, r
 })
 */
 
-let token = "BQCIo4vPzm9b6Kf8xnTQ4UXqn-sMoFQ4m0kTYziQP3VNljm1s2_DOBKPUICwLm5qKI5xSgvDuFfqTMsOwd_ssM_VHt0XRD_2JzAHQ1AY8o67mFs2Hiic7nvxPEcY2XGdEfaFHYQtQxkaE8wwn6aGA6WP"
+playlistId.addEventListener("change", getSongsFromPlaylist);
 
-var settings = {
-    "url": "https://api.spotify.com/v1/playlists/" + playlistId,
-    "method": "get",
-    "timeout": 0,
-    "headers": {
-        "Content-Type": "application/json"
-    },
-};
-
-$.ajax(settings).done(function (response) {
-    document.getElementById("result").innerHTML = response;
-});
+function getSongsFromPlaylist(e){
+	//  Create the XHR, intitalize the connection with open()) 
+	//  and send the request  
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId , true);
+  xhr.send();
+  
+  //  Check here for new state and HTTP response code
+	//  and write the response to the output
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      //alert(this.response);
+      //console.log(this.response);
+      //console.log(JSON.parse(this.response).name);
+      console.log(response);
+      /**
+      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
+      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
+      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
+    }
+  }
+}
