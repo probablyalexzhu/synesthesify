@@ -20,7 +20,7 @@ class rectangle{
     }
 }
 class songData{
-    constructor(a,b,c,d, e, f){
+    constructor(a,b,c,d,e,f){
         //tempo
         this.hue = a; //(string of form(rgb(x,y,z))) 0<=x,y,z<=255
         //speechiness
