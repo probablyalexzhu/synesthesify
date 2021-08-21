@@ -113,6 +113,9 @@ function bigApp() {
 	
 	}
 
+	// important variable for putting into drawing part of program
+	var songFeaturesArray = [];
+
 	getSongsFromPlaylist()
 	
 	function getSongsFeatures(songIds) {
@@ -140,7 +143,7 @@ function bigApp() {
 	      //console.log(typeof response);
 	      songFeaturesObject = songFeaturesObject["audio_features"];
 
-		  let songFeaturesArray = [];
+		  // let songFeaturesArray = [];
 
 		  songFeaturesObject.forEach(function(r) {
 			
@@ -152,5 +155,9 @@ function bigApp() {
 	    }
 	
 	  }
+
 	}
+
+	console.log('pogchamp');
+	console.log(songFeaturesArray);
 }
