@@ -18,6 +18,7 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
+/** 
 const _getToken = async () => {
 
         const result = await fetch('https://accounts.spotify.com/api/token', {
@@ -34,15 +35,33 @@ const _getToken = async () => {
     }
 //https://api.spotify.com/v1/playlists/{playlist_id}
 
+
+
 const _getPlaylists = async (token) => {
 
-        const result = await fetch('https://api.spotify.com/v1/playlists/' + playlistId, {
-            method: 'GET',
-            headers: { 'Authorization' : 'Bearer ' + token}
-        });
+      const result = await fetch('https://api.spotify.com/v1/playlists/' + playlistId, {
+          method: 'GET',
+          headers: { 'Authorization' : 'Bearer ' + token}
+      });
 
-        const data = await result.json();
-        document.getElementById("result").innerHTML = data
-        return data.categories.items;
-        
-    }
+      const data = await result.json();
+      document.getElementById("result").innerHTML = data
+      return data.categories.items;
+
+  }
+*/
+const _getPlaylists = async (BQCkudjlJQHvOPLzj9AFV8lye0SoOuXzyibyTgQBw5gyDI4NyztYQsiIQaTEzYSzzUQWYhWp-xMyN_VuuARQNeXuHPH3_aZ0WQs2JFj9_bbpqYsFQfiWuVYs806t816BL9-X5dpUzExW_5_bIcbos1NS) => {
+
+      const result = await fetch('https://api.spotify.com/v1/playlists/2UEOgAtDT49WHsYzYew65f, {
+          method: 'GET',
+          headers: { 'Authorization' : 'Bearer ' + BQCkudjlJQHvOPLzj9AFV8lye0SoOuXzyibyTgQBw5gyDI4NyztYQsiIQaTEzYSzzUQWYhWp-xMyN_VuuARQNeXuHPH3_aZ0WQs2JFj9_bbpqYsFQfiWuVYs806t816BL9-X5dpUzExW_5_bIcbos1NS}
+      });
+
+      const data = await result.json();
+
+      console.log(data);
+/**
+      document.getElementById("result").innerHTML = data
+      return data.playlist.items;
+*/
+  }
