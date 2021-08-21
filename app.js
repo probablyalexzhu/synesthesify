@@ -39,6 +39,8 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
+let response = 0;
+
 function bigApp() {
 	let playlistId = parsePlaylist();
 	console.log(playlistId);
@@ -61,7 +63,7 @@ function bigApp() {
 	})
 	*/
 	token = "BQAm_h_FtHQH4bHUTbqbBeenbgOVs_3EW5Ipr59qevj1axziW-ejg8Df7TzJ0HMfdI0E4_D1GYZbiHB1wqo0KHJ1_NKSMjRPvvYQfjB6I0xqHVugHb4rNqND7vP_Nl6eo15E9UCrv6yTjIrHeCNDBbTh";
-	function getSongsFromPlaylist(e){
+	function getSongsFromPlaylist(){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request  
 	  var xhr = new XMLHttpRequest();
@@ -77,7 +79,7 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
-	      let response = this.response;
+	      response = this.response;
 	      response = response["items"];
 	    }
 	   }
@@ -100,5 +102,5 @@ function bigApp() {
 	
 	}
 
-	getSongsFromPlaylist(playlistId)
+	getSongsFromPlaylist()
 }
