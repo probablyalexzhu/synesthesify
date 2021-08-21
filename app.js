@@ -1,7 +1,7 @@
 const clientId = '8efe66c9553141b682d78450628421a1';
 const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42';
 
-
+var songFeaturesArray = [];
 
 /*function parsePlaylist() {
   let playlistURL = document.getElementById("myText").value; let playListId=0;
@@ -114,7 +114,7 @@ function bigApp() {
 	}
 
 	// important variable for putting into drawing part of program
-	var songFeaturesArray = [];
+	//var songFeaturesArray = [];
 
 	getSongsFromPlaylist()
 	
