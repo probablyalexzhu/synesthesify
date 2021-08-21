@@ -21,7 +21,10 @@ class rectangle{
 }
 class songData{
     constructor(a,b,c,d){
-        this.color = a; this.abstractness=b; this.shape = c;this.texture=d;
+        this.color = a; //(string of form(rgb(x,y,z))) 0<=x,y,z<=255
+        this.abstractness=b; //0-only image,1-image+shapes,2-a few shapes, no image, 3- lots of shapes
+        this.shape = c; //1-square,2-rectangle,3-circle
+        this.texture=d; //level of gradient
     }
 }
 
