@@ -36,7 +36,7 @@ request({url:playlist_request, headers:{"Authorization":token}}, function(err, r
 */
 
 var settings = {
-    "url": "https://v1.nocodeapi.com/probablyalexzhu/spotify/bTdAKADjbYIsNzlN/playlists?id=" + playlistId,
+    "url": "https://api.spotify.com/v1/playlists/" + playlistId,
     "method": "get",
     "timeout": 0,
     "headers": {
