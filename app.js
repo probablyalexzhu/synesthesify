@@ -22,6 +22,8 @@ var songFeaturesArray = [];
 
 function parsePlaylist() {
   let playlistURL = document.getElementById("myText").value; let playlistId=0;
+  let embedURL = playlistURL.slice(0,24) + "/embed" + playlistURL.slice(24);
+  //console.log(embedURL);
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
@@ -33,6 +35,7 @@ function parsePlaylist() {
     document.getElementById("playlist-id").innerHTML = playlistId[0];
 
   } else {
+    document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
     return "You entered an invalid playlist URL!";
   }
   return playlistId[0];
