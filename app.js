@@ -35,12 +35,15 @@ request({url:playlist_request, headers:{"Authorization":token}}, function(err, r
 })
 */
 
+let token = "BQCIo4vPzm9b6Kf8xnTQ4UXqn-sMoFQ4m0kTYziQP3VNljm1s2_DOBKPUICwLm5qKI5xSgvDuFfqTMsOwd_ssM_VHt0XRD_2JzAHQ1AY8o67mFs2Hiic7nvxPEcY2XGdEfaFHYQtQxkaE8wwn6aGA6WP"
+
 var settings = {
     "url": "https://api.spotify.com/v1/playlists/" + playlistId,
     "method": "get",
     "timeout": 0,
     "headers": {
         "Content-Type": "application/json"
+        "Authorization" : token
     },
 };
 
