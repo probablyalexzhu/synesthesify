@@ -72,6 +72,34 @@ div.transbox {
   padding-top: 40px;
 }
 
+.pulser {
+    
+  animation: pulse 2s linear infinite;
+}
+
+@keyframes pulse {
+0% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+25% {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+50% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+75% {
+  -webkit-transform: scale(0.98);
+  transform: scale(0.98);
+}
+100% {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+}
+
 #footer {
   font-size: 15px;
   padding-top: 100px;
