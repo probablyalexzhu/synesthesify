@@ -41,8 +41,6 @@ console.log(playlistId);
 
 
 
-let playlistId = parsePlaylist();
-console.log(playlistId);
 
 /**
 let request = require("request");
