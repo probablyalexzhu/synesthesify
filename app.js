@@ -87,6 +87,7 @@ function bigApp() {
 	      
 	      response.forEach(function(r) {
 	      	songIds = songIds + r["track"]["id"] + ',';
+		console.log(r["track"]["id"]);
               })  
 	    }
 	   }
