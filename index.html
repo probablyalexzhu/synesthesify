@@ -13,7 +13,6 @@ Spotify URL: <input type="text" id="myText" value="">
 <script>
 function parsePlaylist() {
 playlistURL = document.getElementById("myText").value;
-document.getElementById("testURL").innerHTML = playlistURL;
   if playlistURL.includes("https://open.spotify.com/playlist/") {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
@@ -25,7 +24,6 @@ document.getElementById("testURL").innerHTML = playlistURL;
 }
 </script>
 
-<p id="testURL"></p>
 <p id="playlist-id"></p>
   
 </body>
