@@ -158,6 +158,5 @@ function bigApp() {
 
 	}
 
-	console.log('pogchamp');
 	console.log(songFeaturesArray);
 }
