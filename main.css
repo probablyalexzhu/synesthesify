@@ -31,9 +31,25 @@
       cursor: pointer;
       color:antiquewhite;
       font-family: "Tahoma";
+      position: relative;
+      display: inline-block;
     }
+
+.button:active {
+      transform: translate(0px, 5px);
+      -webkit-transform: translate(0px, 5px);
+      box-shadow: 0px 1px 0px 0px;
+}
     
-.button1 {background-color: #3FBC90;} /* Green */
+.button1 {
+      background-color: #3FBC90;
+      box-shadow: 3px 5px 5px #888888;
+      border-radius: 2px;
+      transition: all 1s ease;
+      transform: scale(1);
+}
+.button1:hover {transform: scale(1.5) perspective(1px)}/* Green */
+
 .button2 {background-color: #008CBA;} /* Blue */
 
 #enterLink {
