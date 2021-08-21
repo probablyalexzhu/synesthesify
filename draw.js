@@ -20,13 +20,19 @@ class rectangle{
     }
 }
 class songData{
-    constructor(a,b,c,d,e,f){
-        this.color = a; //(string of form(rgb(x,y,z))) 0<=x,y,z<=255
+    constructor(a,b,c,d, e, f){
+        //tempo
+        this.hue = a; //(string of form(rgb(x,y,z))) 0<=x,y,z<=255
+        //speechiness
         this.abstractness=b; //0-only image,1-image+shapes,2-a few shapes, no image, 3- lots of shapes
+        //energy
         this.shape = c; //1-square,2-rectangle,3-circle
-        this.texture=d; //0-10, 0:dx is as far apart as possible,10-dx is super close together (steep gradient)
-        this.brightness = e;
-        this.opacity = f;
+        //acousticness
+        this.texture=d; //level of gradient
+        //valence
+        this.brightness = e; //constant sum added to all rgb values
+        //danceability
+        this.opacity = f; //level of opacity
     }
 }
 class rgb{
