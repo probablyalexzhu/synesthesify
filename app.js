@@ -8,7 +8,7 @@ function parsePlaylist() {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
     document.getElementById("playlist-id").innerHTML = playlistId[0];
-  } elif (playlistURL.includes("https://open.spotify.com/user/")) {
+  } else if (playlistURL.includes("https://open.spotify.com/user/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[6].split("?");
     document.getElementById("playlist-id").innerHTML = playlistId[0];
