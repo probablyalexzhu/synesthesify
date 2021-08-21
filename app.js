@@ -60,11 +60,14 @@ function bigApp() {
 	  }
 	})
 	*/
-	let token = "BQDdYbSszeODYXgc5jhxrip7Y-PFoq-C9AEOVh9FYjP63wB_BByMHzUZQeDrOPw02tgqBe07Ps_KHAHydx5jE4ejKmZlj3-Bn2uk4CjL2VJ0D8ru0tlyBzdmtcC2JSpUzRTASHC2N-z96MGicu6MpCWJ";
+
+	let token = "BQBYJOdCT4YotcfMDdidEsyVGfOyJJAo-MS3YN9CH07-LLs3xk9VBgWYpcKI2NAuINxIaWfavX_rffNwRXrk_4TBSahenoFkLbxR62JMaGow-mQ0BKg4XBOyfgOx5rATbQyCFNbPfQrH5hn0FJtBcPB3";
 	function getSongsFromPlaylist(){
 		//  Create the XHR, intitalize the connection with open()) 
 		//  and send the request
-	  let songIds = '';
+	  
+		var songIds = '';
+
 	  var xhr = new XMLHttpRequest();
 	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?fields=items%28track%28id%29%29" , true);
 	  xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -89,7 +92,8 @@ function bigApp() {
 	      	songIds = songIds + r["track"]["id"] + ',';
 		console.log(r["track"]["id"]);
               })
-	      //console.log(songIds);
+			  
+			  getSongsFeatures(songIds);
 	    }
 	   }
 //document.getElementById("parsed").innerHTML = JSON.stringify(response);
@@ -111,10 +115,14 @@ function bigApp() {
 
 	getSongsFromPlaylist()
 	
-	function getSongsFeatures() {
+	function getSongsFeatures(songIds) {
 	  var xhr = new XMLHttpRequest();
-	  songIds = encodeURI(songIds);
-	  xhr.open("GET","https://api.spotify.com/v1/audio-features?ids=" + songIds, true);
+
+		console.log(songIds);
+
+	  let songIdsEncoded = encodeURI(songIds);
+
+	  xhr.open("GET","https://api.spotify.com/v1/audio-features?ids=" + songIdsEncoded, true);
 	  xhr.setRequestHeader("Authorization", "Bearer " + token);
 	  xhr.send();
 		
@@ -127,9 +135,22 @@ function bigApp() {
 	      
 	      console.log(this.response);
 	      console.log(typeof this.response);
+
+		  let songFeaturesObject = JSON.parse(this.response);
+	      //console.log(typeof response);
+	      songFeaturesObject = songFeaturesObject["audio_features"];
+
+		  let songFeaturesArray = [];
+
+		  songFeaturesObject.forEach(function(r) {
+			
+			songFeaturesArray.push(r);
+		  });
+			
+		  console.log(songFeaturesArray);
+
 	    }
+	
 	  }
 	}
-	
-	getSongsFeatures();
 }
