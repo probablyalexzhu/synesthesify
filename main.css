@@ -15,7 +15,7 @@
       margin: auto;
       width: 100%;
       font-size:36px;
-      color: #FDF2EB;
+      color: #F0F2EB;
       font-family: "Tahoma";
     }
 
@@ -29,7 +29,7 @@
       font-size: 20px;
       margin: 4px 2px;
       cursor: pointer;
-      color: #FDF2EB;
+      color: #F0F2EB;
       font-family: "Tahoma";
       position: relative;
       display: inline-block;
@@ -57,7 +57,7 @@
   opacity:90%;
   font-size:24px;
   font-family: "Tahoma";
-  background-color: #FDF2EB;
+  background-color: #F0F2EB;
 }
 
 div.transbox {
@@ -80,7 +80,7 @@ div.transbox {
 .explanation {
   text-align: left;
   font-size: 20px;
-  color: #FDF2EB;
+  color: #F0F2EB;
   padding-right:100px;
   padding-left:100px;
 }
@@ -88,7 +88,7 @@ div.transbox {
 .explanation-header {
   text-align: left;
   font-size: 40px;
-  color: #FDF2EB; 
+  color: #F0F2EB; 
   padding-right:100px;
   padding-left:100px;
 }
