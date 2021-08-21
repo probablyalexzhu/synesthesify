@@ -1,9 +1,9 @@
 //important 
-var image = document.querySelector("img");
-var canvas = document.querySelector("canvas");
-var ctx = canvas.getContext("2d");
+//var image = document.querySelector("img");
+//var canvas = document.querySelector("canvas");
+//var ctx = canvas.getContext("2d");
 const canvasSize = 500; //500x500 pixel size
-let songsFile = require('./data.json');
+//let songsFile = require('./data.json');
 var songs = [];
 
 //classes
@@ -51,10 +51,87 @@ function randomNumber(size){
 
 function getSongArray(){
     for(let i= 0;i<songFeaturesArray.length;i++){
+        let obj = songFeaturesArray[i];
+        let tempo = obj.tempo;
+        let a;
+        switch(tempo){
+            case tempo >= 160:
+                a = new rgb(240, 10 , 10);
+                break;
 
+            case tempo >= 150:
+                a = new rgb (245, 137, 10);
+                break;
+            
+            case tempo >= 140:
+                a = new rgb (245, 245, 10);
+                break;
+            case tempo >= 130:
+                a = new rgb(20, 240, 15);
+                break;
+            case tempo >= 120:
+                a = new rgb(20, 180, 15);
+                break;
+            case tempo >= 110:
+                a = new rgb(15, 210, 220);
+                break;
+            case tempo >= 100:
+                a = new rgb(15, 20, 224);
+                break;
+            case tempo >= 90:
+                a = new rgb(100, 30, 120);
+                break;
+            default:
+                a = new rgb(120, 80, 30);
+                break;
+        }
+        
+        let speech = obj.speechiness;
+        let b;
+
+        switch(speech){
+            case speech>0.35:
+                b = 0;
+                break;
+            case speech>0.25:
+                b = 1;
+                break;
+            case speech > 0.1:
+                b = 2
+                break;
+            default:
+                b = 3
+        }
+        
+        let energy = obj.energy;
+        let c;
+
+        switch(energy){
+            case energy > 0.5:
+                c = 3;
+                break; 
+            case energy > 0.3:
+                c = 2;
+                break;
+            default:
+                c = 1;
+                break;
+        }
+
+        let acou = obj.acousticness;
+        let d = Math.floor(acou * 10 + 1);
+        
+        let bright = obj.valence;
+        let e = Math.floor(bright * 10 + 1);
+
+        let dance = obj.danceability;
+        let f = 0.4 * (1-dance) + dance;
+        
+        songs[i] = new songData(a,b,c,d,e,f)
     }
 }
-
+getSongArray();
+console.log(songs);
 function getSectionCoordinates(numberOfSongs){
     const sqr = Math.floor(Math.sqrt(numberOfSongs))
     const size = Math.floor(canvasSize/sqr);
