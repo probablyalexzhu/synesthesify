@@ -43,7 +43,6 @@ var settings = {
     "timeout": 0,
     "headers": {
         "Content-Type": "application/json"
-        "Authorization" : token
     },
 };
 
