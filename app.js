@@ -25,10 +25,12 @@ function parsePlaylist() {
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
+    document.getElementById("playlist-id").innerHTML = playlistId[0];
 
   } else if (playlistURL.includes("https://open.spotify.com/user/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[6].split("?");
+    document.getElementById("playlist-id").innerHTML = playlistId[0];
 
   } else {
     return "You entered an invalid playlist URL!";
