@@ -4,7 +4,7 @@
 
 function parsePlaylist() {
   playlistURL = document.getElementById("myText").value;
-  if playlistURL.includes("https://open.spotify.com/playlist/") {
+  if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
     document.getElementById("playlist-id").innerHTML = playlistId[0];
