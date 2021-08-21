@@ -38,7 +38,7 @@ const APIController = (function() {
     
     const _getPlaylists = async (token) => {
 
-        const result = await fetch('https://api.spotify.com/v1/playlists/' + playlistId', {
+        const result = await fetch('https://api.spotify.com/v1/playlists/' + playlistId, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
         });
