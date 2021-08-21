@@ -1,0 +1,2 @@
+# JavaScript-SpotifyAPI
+Hackathon project :)
