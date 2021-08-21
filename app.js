@@ -133,6 +133,7 @@ const UIController = (function() {
 
 })();
 
+/**
 const APPController = (function(UICtrl, APICtrl) {
 
     // get input field object ref
@@ -212,3 +213,4 @@ const APPController = (function(UICtrl, APICtrl) {
 
 // will need to call a method to load the genres on page load
 APPController.init();
+*/
