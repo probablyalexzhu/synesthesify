@@ -1,6 +1,7 @@
 const clientId = '8efe66c9553141b682d78450628421a1'
 const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42'
 
+console.log('LIGMA balls');
 
 function parsePlaylist() {
   playlistURL = document.getElementById("myText").value;
@@ -50,11 +51,11 @@ const _getPlaylists = async (token) => {
 
   }
 */
-const _getPlaylists = async (BQCkudjlJQHvOPLzj9AFV8lye0SoOuXzyibyTgQBw5gyDI4NyztYQsiIQaTEzYSzzUQWYhWp-xMyN_VuuARQNeXuHPH3_aZ0WQs2JFj9_bbpqYsFQfiWuVYs806t816BL9-X5dpUzExW_5_bIcbos1NS) => {
+const _getPlaylists = async ('BQCkudjlJQHvOPLzj9AFV8lye0SoOuXzyibyTgQBw5gyDI4NyztYQsiIQaTEzYSzzUQWYhWp-xMyN_VuuARQNeXuHPH3_aZ0WQs2JFj9_bbpqYsFQfiWuVYs806t816BL9-X5dpUzExW_5_bIcbos1NS') => {
 
     const result = await fetch('https://api.spotify.com/v1/playlists/2UEOgAtDT49WHsYzYew65f', {
         method: 'GET',
-        headers: { 'Authorization' : 'Bearer ' + BQCkudjlJQHvOPLzj9AFV8lye0SoOuXzyibyTgQBw5gyDI4NyztYQsiIQaTEzYSzzUQWYhWp-xMyN_VuuARQNeXuHPH3_aZ0WQs2JFj9_bbpqYsFQfiWuVYs806t816BL9-X5dpUzExW_5_bIcbos1NS}
+        headers: { 'Authorization' : 'Bearer ' + 'BQCkudjlJQHvOPLzj9AFV8lye0SoOuXzyibyTgQBw5gyDI4NyztYQsiIQaTEzYSzzUQWYhWp-xMyN_VuuARQNeXuHPH3_aZ0WQs2JFj9_bbpqYsFQfiWuVYs806t816BL9-X5dpUzExW_5_bIcbos1NS'}
     });
 
     const data = await result.json();
