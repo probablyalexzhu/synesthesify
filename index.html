@@ -8,20 +8,6 @@ Spotify URL: <input type="text" id="myText" value="">
 
 <script type="text/javascript" src="app.js"></script>
   
-<script>
-function parsePlaylist() {
-playlistURL = document.getElementById("myText").value;
-  if (playlistURL.includes("https://open.spotify.com/playlist/")) {
-    playlistId = playlistURL.split("/");
-    playlistId = playlistId[4].split("?");
-    document.getElementById("playlist-id").innerHTML = playlistId[0];
-  } else {
-    document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
-  }
-//https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
-}
-</script>
-  
 <button onclick="parsePlaylist()">Submit</button>
   
 <p id="playlist-id"></p>
