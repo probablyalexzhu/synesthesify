@@ -1,8 +1,9 @@
 //important 
 //var image = document.querySelector("img");
-//var canvas = document.querySelector("canvas");
-//var ctx = canvas.getContext("2d");
+var canvas = document.querySelector("#canvas");
+var ctx = canvas.getContext("2d");
 const canvasSize = 500; //500x500 pixel size
+let section_size;
 //let songsFile = require('./data.json');
 var songs = [];
 
@@ -129,14 +130,12 @@ function getSongArray(){
         
         songs[i] = new songData(a,b,c,d,e,f)
     }
-    console.log(songs[0]);
 }
-
-
 
 function getSectionCoordinates(numberOfSongs){
     const sqr = Math.floor(Math.sqrt(numberOfSongs))
-    const size = Math.floor(canvasSize/sqr);
+    section_size = Math.floor(canvasSize/sqr);
+    let size = section_size;
     const leftover = numberOfSongs - (sqr*sqr)
     arr = [];
     for(i=0;i+size<=canvasSize;i+=size){
@@ -160,6 +159,31 @@ function drawFromArray(){
     }
 }
 function draw(song, coords){
+    let abst = song.abstractness;
+    let shape_count;
+    let tl = coords.tl;
+    let br = coords.br;
+    switch(abst){
+
+    }
+        
+    let energy = song.energy;
+    switch(energy){
+        case 3:
+            for (let i = 0; i < shape_count; i++){
+                ctx.beginPath();
+                let centerx = randomNumber(section_size-2);
+                let centery = randomNumber(section_size-2)
+                let rad = randomNumber(section_size/2);
+                ctx.arc(centerx + tl.x, centery+ tl.y, rad, 0, 2*Math.PI);
+                ctx.stroke();
+            }
+            break;
+
+        case 2:
+            for (let i = )
+//stuff to do: stroke colour, stroke width 
+    }
     
 }
 function copyImageToCanvas() {
