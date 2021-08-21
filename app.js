@@ -38,50 +38,53 @@ function parsePlaylist() {
   return playlistId[0];
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
-let playlistId = parsePlaylist();
-console.log(playlistId);
+
+function bigApp() {
+	let playlistId = parsePlaylist();
+	console.log(playlistId);
 
 
 
 
-/**
-let request = require("request");
-let token = "Bearer ";
-let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
+	/**
+	let request = require("request");
+	let token = "Bearer ";
+	let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
 
-request({url:playlist_request, headers:{"Authorization":token}}, function(err, res) {
-  if (res) {
-    let songs = JSON.parse(res.body);
-    console.log("song: " + songs.name);
-    songs.tracks.forEach (function(track) {
-      console.log(track.track.name);
-    });
-  }
-})
-*/
+	request({url:playlist_request, headers:{"Authorization":token}}, function(err, res) {
+	  if (res) {
+	    let songs = JSON.parse(res.body);
+	    console.log("song: " + songs.name);
+	    songs.tracks.forEach (function(track) {
+	      console.log(track.track.name);
+	    });
+	  }
+	})
+	*/
 
-function getSongsFromPlaylist(e){
-	//  Create the XHR, intitalize the connection with open()) 
-	//  and send the request  
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId , true);
-  xhr.send();
-  
-  //  Check here for new state and HTTP response code
-	//  and write the response to the output
-  xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      //alert(this.response);
-      //console.log(this.response);
-      //console.log(JSON.parse(this.response).name);
-      console.log(this.response);
-      /**
-      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
-      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
-      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
-      */
-    }
-  }
+	function getSongsFromPlaylist(e){
+		//  Create the XHR, intitalize the connection with open()) 
+		//  and send the request  
+	  var xhr = new XMLHttpRequest();
+	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId , true);
+	  xhr.send();
+
+	  //  Check here for new state and HTTP response code
+		//  and write the response to the output
+	  xhr.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      //alert(this.response);
+	      //console.log(this.response);
+	      //console.log(JSON.parse(this.response).name);
+	      console.log(this.response);
+	      /**
+	      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
+	      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
+	      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
+	      */
+	    }
+	  }
+	}
+
+	getSongsFromPlaylist(playlistId)
 }
-
-getSongsFromPlaylist(playlistId)
