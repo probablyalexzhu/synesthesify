@@ -1,0 +1,83 @@
+.parallax {
+      /* The image used */
+      background-image: url("background.png");
+    
+      /* Set a specific height */
+      min-height: 500px; 
+    
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      font-size:36px;
+      color:antiquewhite;
+      font-family: "Tahoma";
+    }
+
+.button {
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+      color:antiquewhite;
+      font-family: "Tahoma";
+    }
+    
+.button1 {background-color: #3FBC90;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+
+#enterLink {
+  width:800px;
+  height:50px;
+  opacity:90%;
+  font-size:24px;
+  font-family: "Tahoma";
+  background-color:antiquewhite;
+}
+
+div.transbox {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: -100px;
+  background-color: #000000;
+  border: 1px solid black;
+}
+
+#logo {
+  padding-top: 40px;
+}
+
+#footer {
+  font-size: 15px;
+  padding-top: 100px;
+}
+
+.explanation {
+  text-align: left;
+  font-size: 20px;
+  color:antiquewhite;
+  padding-right:100px;
+  padding-left:100px;
+}
+
+.explanation-header {
+  text-align: left;
+  font-size: 40px;
+  color:antiquewhite; 
+  padding-right:100px;
+  padding-left:100px;
+}
+
+.link {
+  color: #3FBC90;
+}
