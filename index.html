@@ -8,10 +8,6 @@ Spotify URL: <input type="text" id="myText" value="">
 
 <script type="text/javascript" src="app.js"></script>
   
-<button onclick="parsePlaylist()">Submit</button>
-  
-<p id="playlist-id"></p>
-  
 <script>
 function parsePlaylist() {
 playlistURL = document.getElementById("myText").value;
@@ -25,6 +21,12 @@ playlistURL = document.getElementById("myText").value;
 //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 </script>
+  
+<button onclick="parsePlaylist()">Submit</button>
+  
+<p id="playlist-id"></p>
+  
+
   
 </body>
 </html>
