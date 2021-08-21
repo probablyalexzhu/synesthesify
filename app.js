@@ -77,6 +77,18 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
+	      response = response["items"];
+
+//document.getElementById("parsed").innerHTML = JSON.stringify(response);
+//document.getElementById("parsed").innerHTML = response[0]["track"]["id"];
+
+	      let songIds = '';
+
+	      response.forEach(function(r) {
+	      	songIds = songIds + r["track"]["id"] + ',';
+	      })  
+
+	      console.log(songIds);
 	      /**
 	      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
 	      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
