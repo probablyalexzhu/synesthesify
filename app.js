@@ -79,6 +79,8 @@ function bigApp() {
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
 	      console.log(this.response["items"]);
+	      console.log(typeof this.response);
+	      console.log(typeof this.response["items"]);
 	      
 	      this.response["items"].forEach(function(r) {
 	      	songIds = songIds + r["track"]["id"] + ',';
