@@ -39,8 +39,6 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
-let response = 0;
-
 function bigApp() {
 	let playlistId = parsePlaylist();
 	console.log(playlistId);
@@ -79,7 +77,7 @@ function bigApp() {
 	      //console.log(this.response);
 	      //console.log(JSON.parse(this.response).name);
 	      console.log(this.response);
-	      response = this.response;
+	      var response = this.response;
 	      response = response["items"];
 	      console.log(response);
 	    }
