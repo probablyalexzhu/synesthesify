@@ -102,7 +102,7 @@ div.transbox {
 
 #footer {
   font-size: 15px;
-  padding-top: 100px;
+  margin-top: -100px;
 }
 
 #downloader {
