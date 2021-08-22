@@ -51,7 +51,7 @@ function drawMain(){
         ctx.strokeStyle = "black"
         ctx.clearRect(0,0,500,500)
         songs =[]; 
-        //console.log(songs)
+        console.log(songs)
     }
     function randomNumber(size){
         const h = Math.random()*size+1;
@@ -160,7 +160,7 @@ function drawMain(){
             songs.push(new songData(a,b,c,d,e,f))
         }
         avg_tempo/=songFeaturesArray.length;
-        //console.log(songs);
+        console.log(songs);
         songFeaturesArray = [];
     }
     //returns a set of rectangles where each section of art should go into, we first arrange the coords in a 
@@ -190,7 +190,7 @@ function drawMain(){
     // goes through songs[], driver code for all drawing methods
     function drawFromArray(){
         const coordArray = getSectionCoordinates(songs.length);
-        //console.log(coordArray[0].tl);
+        console.log(coordArray[0].tl);
         drawBackground(avg_tempo);
         for (var i = 0; i<songs.length; i++){
             draw(songs[i], coordArray[i]);
