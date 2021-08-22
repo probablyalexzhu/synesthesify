@@ -3,24 +3,36 @@ const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42';
 
 var songFeaturesArray = [];
 var finalToken = '';
+var totalRuns = 0;
+var oldEmbedURL = ''
 
 function parsePlaylist() {
   let playlistURL = document.getElementById("enterLink").value; let playlistId=0;
   let embedURL = playlistURL.slice(0,24) + "/embed" + playlistURL.slice(24);
-  document.getElementById("embed").src = embedURL;
-  
+  if (oldEmbedURL !== embedURL) {
+	document.getElementById("embed").src = embedURL;
+  }
+  oldEmbedURL = embedURL;
+
   //console.log(embedURL);
   if (playlistURL.includes("https://open.spotify.com/playlist/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[4].split("?");
     document.getElementById("playlist-id").innerHTML = "";
-    document.getElementById("embed").style.visibility = "visible";
+	if (totalRuns == 0) {
+		document.getElementById("embed").style.visibility = "visible";
+		totalRuns += 1;
+	}
+	    
 
   } else if (playlistURL.includes("https://open.spotify.com/user/")) {
     playlistId = playlistURL.split("/");
     playlistId = playlistId[6].split("?");
-    document.getElementById("playlist-id").innerHTML = "";
-    document.getElementById("embed").style.visibility = "visible";
+    document.getElementById("playlist-id").innerHTML = ""; 
+	if (totalRuns == 0) {
+		document.getElementById("embed").style.visibility = "visible";
+		totalRuns += 1;
+	}
 
   } else {
     document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
@@ -167,6 +179,4 @@ function bigApp() {
 	  }
 
 	}
-
-	console.log(songFeaturesArray);
 }
