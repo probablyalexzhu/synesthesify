@@ -135,12 +135,15 @@ function hugeApp(){
             switch(true){
                 case energy > 0.75:
                     c = 3;
-                    break; 
-                case energy > 0.6:
+                    break;
+                case energy > 0.63:
                     c = 2;
+                    break; 
+                case energy > 0.5:
+                    c = 1;
                     break;
                 default:
-                    c = 1;
+                    c = 0;
                     break;
             }
     
@@ -298,7 +301,7 @@ function hugeApp(){
         //energy -- draw the shapes --circles,rectangles,lines
         let energy = song.shape;
         switch(energy){
-            case 3:
+            case 3: //circle
                 for (let i = 0; i < shape_count; i++){
                     ctx.beginPath();
                     let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
@@ -312,7 +315,7 @@ function hugeApp(){
                 }
                 break;
     
-            case 2:
+            case 2: //rectangle
                 for (let i = 0; i < shape_count; i++){
                     let centerx = randomNumber(section_size-2)+tl.x;
                     let centery = randomNumber(section_size-2) + tl.y;
@@ -324,7 +327,22 @@ function hugeApp(){
                     ctx.strokeRect(centerx,centery,centerx+len,centery+width);
                 }
                 break;
-            case 1:
+
+            case 1: //triangle
+                for (let i = 0; i < shape_count; i++){
+                    let point1 = {'x' :randomNumber(section_size-2), 'y': randomNumber(section_size-2)};
+                    let point2 = {'x' :randomNumber(section_size-2), 'y': randomNumber(section_size-2)};
+                    let point3 = {'x' :randomNumber(section_size-2), 'y': randomNumber(section_size-2)};
+                    ctx.beginPath();
+                    ctx.moveTo(point1.x, point1.y);
+                    ctx.lineTo(point2.x, point2.y);
+                    ctx.lineTo(point3.x, point3.y);
+                    ctx.closePath();
+                    ctx.stroke();
+
+                }
+            
+            case 0: //line
                 for (let i = 0; i < shape_count; i++){
                     let firstx = randomNumber(section_size+300)+tl.x;
                     let firsty = randomNumber(section_size+300) + tl.y;
