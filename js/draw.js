@@ -235,12 +235,15 @@ function hugeApp(){
         let tl = coords.tl;
         let br = coords.br;
         //opacity -- set opacity, change stroke size
-        ctx.globalAlpha=song.opacity;
-        ctx.lineWidth=song.opacity * 6;
+        let opacity0 = song.opacity;
+        if(opacity_S!=-1) opacity0=opacity_S/100;
+        ctx.globalAlpha=opacity0;
+        ctx.lineWidth=opacity0 * 6;
         //hue -- get base color
         let cur_rgb  = song.hue;
         //brightness -- change the hue by certain amount, add randomness
         let bright = song.brightness;
+        if(brightness_S!=-1) bright = brightness_S/100;
         let r1 = randomNumber(6)-4; let r2 = randomNumber(6)-4; let r3 = randomNumber(6)-4;
         cur_rgb.r+=bright-10+r1;
         cur_rgb.g+=bright-10+r2;
@@ -282,8 +285,8 @@ function hugeApp(){
     
         //abstractness -- get shape count and possibly get image
         let abst = song.abstractness;
+        if(abstractness_S!=-1) abst = Math.floor(abstractness_S/100);
         let shape_count= 0;
-        
         switch(abst){
             case 3:
                 shape_count=2;
@@ -300,8 +303,9 @@ function hugeApp(){
         
         
         //energy -- draw the shapes --circles,rectangles,lines
-        let energy = song.shape;
-        switch(energy){
+        let shape0 = song.shape;
+        if(shape_S!=-1) shape0=Math.floor(shape_S/100);
+        switch(shape0){
 
             case 3: //triangle
                 for (let i = 0; i < shape_count; i++){
@@ -314,8 +318,8 @@ function hugeApp(){
                     ctx.lineTo(point3.x, point3.y);
                     ctx.closePath();
                     ctx.stroke();
-
                 }
+                break;
             
             case 2: //circle
                 for (let i = 0; i < shape_count; i++){
