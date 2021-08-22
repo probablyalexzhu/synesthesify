@@ -41,6 +41,20 @@
 <iframe id="embed" src=embedURL width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media" style="visibility: hidden"></iframe>
 
 <canvas id = "canvas" width = "500" height = "500"></canvas>
+  
+<button class="button button1" id="downloader" style="visibility: hidden" onclick="DownloadCanvasAsImage()">Download Image</button>
+
+<script>
+function DownloadCanvasAsImage(){
+  let downloadLink = document.createElement('a');
+  downloadLink.setAttribute('download', 'Synesthesify Art.png');
+  let canvas = document.getElementById('canvas');
+  let dataURL = canvas.toDataURL('image/png');
+  let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
+  downloadLink.setAttribute('href', url);
+  downloadLink.click();
+}
+</script>
 
 <div class="sliders">
 
