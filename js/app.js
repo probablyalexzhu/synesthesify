@@ -97,11 +97,11 @@ function mainApi() {
 	
 		const data = await result.json();
 		finalToken = data.access_token;
-		console.log(typeof finalToken[0]);
+		//console.log(typeof finalToken[0]);
 		getSongsFromPlaylist(finalToken);
 	}
 
-	console.log(playlistId);
+	//console.log(playlistId);
 	getToken();
 	
 	/**
@@ -128,7 +128,7 @@ function mainApi() {
 	      
 	      response.forEach(function(r) {
 	      	songIds = songIds + r["track"]["id"] + ',';
-		console.log(r["track"]["id"]);
+		//console.log(r["track"]["id"]);
               })
 			  
 			  getSongsFeatures(songIds, token);
@@ -145,7 +145,7 @@ function mainApi() {
 	function getSongsFeatures(songIds, token) {
 	  var xhr = new XMLHttpRequest();
 
-		console.log(songIds);
+		//console.log(songIds);
 
 	  let songIdsEncoded = encodeURI(songIds);
 
@@ -155,8 +155,8 @@ function mainApi() {
 		
 	  xhr.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {	      
-	      console.log(this.response);
-	      console.log(typeof this.response);
+	      //console.log(this.response);
+	      //console.log(typeof this.response);
 
 		  let songFeaturesObject = JSON.parse(this.response);
 	      //console.log(typeof response);
@@ -167,7 +167,7 @@ function mainApi() {
 			songFeaturesArray.push(r);
 		  });
 			
-		  console.log(songFeaturesArray);
+		  //console.log(songFeaturesArray);
 
 	    }
 	
