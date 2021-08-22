@@ -330,9 +330,9 @@ function hugeApp(){
 
             case 1: //triangle
                 for (let i = 0; i < shape_count; i++){
-                    let point1 = {'x' :randomNumber(section_size-2), 'y': randomNumber(section_size-2)};
-                    let point2 = {'x' :randomNumber(section_size-2), 'y': randomNumber(section_size-2)};
-                    let point3 = {'x' :randomNumber(section_size-2), 'y': randomNumber(section_size-2)};
+                    let point1 = {'x' :randomNumber(section_size-2)+tl.x, 'y': randomNumber(section_size-2)+tl.y};
+                    let point2 = {'x' :randomNumber(section_size-2)+tl.x, 'y': randomNumber(section_size-2)+tl.y};
+                    let point3 = {'x' :randomNumber(section_size-2)+tl.x, 'y': randomNumber(section_size-2)+tl.y};
                     ctx.beginPath();
                     ctx.moveTo(point1.x, point1.y);
                     ctx.lineTo(point2.x, point2.y);
