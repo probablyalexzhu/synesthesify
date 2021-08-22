@@ -346,6 +346,7 @@ function hugeApp(){
 
             case 0: //line
                 for (let i = 0; i < shape_count; i++){
+                    ctx.lineWidth +=5;
                     let firstx = randomNumber(section_size+300)+tl.x;
                     let firsty = randomNumber(section_size+300) + tl.y;
                     let secondx = randomNumber(section_size+300)+tl.x;
@@ -357,6 +358,7 @@ function hugeApp(){
                     ctx.moveTo(firstx,firsty);
                     ctx.lineTo(secondx,secondy);
                     ctx.stroke();
+                    ctx.lineWidth -= 5;
                 }
                 break;
         }//end switch
