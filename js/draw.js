@@ -1,6 +1,6 @@
 function hugeApp(){
 
-    //important 
+    //**Important variables**
     //var image = document.querySelector("img");
     var canvas = document.querySelector("#canvas");
     var ctx = canvas.getContext("2d");
@@ -9,7 +9,7 @@ function hugeApp(){
     //let songsFile = require('./data.json');
     var songs = [];
     
-    //classes
+    //**Classes**
     class coordinate{
         constructor(x,y){
             this.x=x; this.y=y;
@@ -29,13 +29,13 @@ function hugeApp(){
             //speechiness
             this.abstractness=b; //0-only image,1-image+shapes,2-a few shapes, no image, 3- lots of shapes
             //energy
-            this.shape = c; //1-square,2-rectangle,3-circle
+            this.shape = c; //0-line,1-rectangle,2-circle,3-triangle
             //acousticness
-            this.texture=d; //level of gradient
+            this.texture=d; //(0-1) level of gradient: 1 = steep, 0 = very smooth
             //valence
-            this.brightness = e; //constant sum added to all rgb values
+            this.brightness = e; //(1-10) constant sum added to all rgb values
             //danceability
-            this.opacity = f; //level of opacity
+            this.opacity = f; //(0-1) level of opacity
         }
     }
     class rgb{
@@ -72,8 +72,8 @@ function hugeApp(){
     reset();
     getSongArray();
     drawFromArray();
-    //main functions
-    
+    //**Main functions**
+    //takes songFeaturesArray and initializes "songs" to hold an array of sound data, using an algorithm
     function getSongArray(){
         for(let i= 0;i<songFeaturesArray.length;i++){
             let obj = songFeaturesArray[i];
@@ -162,7 +162,8 @@ function hugeApp(){
         console.log(songs);
         songFeaturesArray = [];
     }
-    
+    //returns a set of rectangles where each section of art should go into, we first arrange the coords in a 
+    //square, then add leftovers randomly
     function getSectionCoordinates(numberOfSongs){
         const sqr = Math.floor(Math.sqrt(numberOfSongs))
         section_size = Math.floor(canvasSize/sqr);
@@ -194,6 +195,7 @@ function hugeApp(){
             draw(songs[i], coordArray[i]);
         }
     }
+    //draws a radial gradient for the background
     function drawBackground(avg_tempo){
         let a;
         switch(true){
@@ -231,6 +233,7 @@ function hugeApp(){
         ctx.fillStyle = grd;
         ctx.fillRect(0,0,500,500)
     }
+    //main function which draws each section of art
     function draw(song, coords){
         let tl = coords.tl;
         let br = coords.br;
@@ -249,7 +252,7 @@ function hugeApp(){
         cur_rgb.g+=bright-10+r2;
         cur_rgb.b+=bright-10+r3;
         
-        //texture -- fill it in with gradient
+        //texture -- fill in the rectangle "coords" with texturized gradient
         let r4 = randomNumber(4);
         let addTexture = song.texture*(section_size*1.4);
         switch(r4){
@@ -368,6 +371,7 @@ function hugeApp(){
         }//end switch
         
     }
+    //stub function which could integrate future image api compatability
     function copyImageToCanvas() {
         
     }
