@@ -57,6 +57,10 @@ function parsePlaylist() {
 
   } else {
     document.getElementById("playlist-id").innerHTML = "You entered an invalid playlist URL!";
+    timesClicked--;
+    setTimeout(function() {
+	document.getElementById("reminder").style.visibility = "hidden";
+    }, 1000);
     return "You entered an invalid playlist URL!";
   }
   return playlistId[0];
