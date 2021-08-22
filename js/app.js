@@ -1,14 +1,18 @@
-const clientId = '8efe66c9553141b682d78450628421a1';
-const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42';
+const clientId = '8efe66c9553141b682d78450628421a1'; //sets the Spotify application client ID 
+const clientSecret = '4ccb23d3318f467ab1faec5a6a03cb42'; //sets the Spotify application secret ID
 
 var songFeaturesArray = [];
 var finalToken = '';
 var totalRuns = 0;
 var oldEmbedURL = ''
 var timesClicked = 1;
-var timesClickedImage = 1;
+var timesClickedImage = 1; //initialization of some global variables used in functions
 
-function counter() {
+/**
+Function which counts and stores the amount of times user clicks on "Create" button.
+Interacts with HTML to make elements visible or hidden.
+*/
+function counter() { 
     if (timesClicked == 1) {   
 		setTimeout(function() {
 			document.getElementById("reminder").style.visibility = "visible";
@@ -27,6 +31,10 @@ function counter() {
 	}
 }
 
+/**
+Function which takes string of entered playlist link, and parses it to get an embed URL and playlist ID.
+Playlist ID is then used in subsequent methods for API responses.
+*/
 function parsePlaylist() {
   let playlistURL = document.getElementById("enterLink").value; let playlistId=0;
   let embedURL = playlistURL.slice(0,24) + "/embed" + playlistURL.slice(24);
@@ -67,9 +75,15 @@ function parsePlaylist() {
   //https://open.spotify.com/playlist/2UEOgAtDT49WHsYzYew65f?si=ab5ad01c816a48c1
 }
 
-function bigApp() {
+//Major function which runs nested functions that use Spotify's API to ultimately pull the song features for each song in a playlist.
+function mainApi() {
 	let playlistId = parsePlaylist();
-
+	
+	/**
+	Constant-defined function which asynchronously fetches a token from Spotify's server using the client credentials authorization flow.
+	See https://developer.spotify.com/documentation/general/guides/authorization-guide/ for more information.
+	Stores the token ID as variable finalToken.
+	*/
 	const getToken = async () => {
 	
 		const result = await fetch('https://accounts.spotify.com/api/token', {
@@ -89,45 +103,22 @@ function bigApp() {
 
 	console.log(playlistId);
 	getToken();
-
-	
-
 	
 	/**
-	let request = require("request");
-	let token = "Bearer ";
-	let playlist_request = "https://api.spotify.com/v1/playlists/" + playlistId;
-	request({url:playlist_request, headers:{"Authorization":token}}, function(err, res) {
-	  if (res) {
-	    let songs = JSON.parse(res.body);
-	    console.log("song: " + songs.name);
-	    songs.tracks.forEach (function(track) {
-	      console.log(track.track.name);
-	    });
-	  }
-	})
+	Function which passes the "token" parameter to post "GET" request from Spotify's API to obtain all songs from a playlist.
+	Uses XMLHtppRequest() method to communicate with Spotify's server from the Web App.
+	When the XML method receives a response, stores response as a JSON file and parses, storing response as an array titled "SongIds".
 	*/
-
-	
 	function getSongsFromPlaylist(token){
-		//  Create the XHR, intitalize the connection with open()) 
-		//  and send the request
-	  
 		var songIds = '';
 		
 	  var xhr = new XMLHttpRequest();
 	  xhr.open("GET","https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?fields=items%28track%28id%29%29" , true);
 	  xhr.setRequestHeader("Authorization", "Bearer " + token);
 	  xhr.send();
-
-	  //  Check here for new state and HTTP response code
-		//  and write the response to the output
+		
 	  xhr.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	      //alert(this.response);
-	      //console.log(this.response);
-	      //console.log(JSON.parse(this.response).name);
-	      //console.log(this.response);
 	      
 	      let response = JSON.parse(this.response);
 	      //console.log(typeof response);
@@ -143,28 +134,14 @@ function bigApp() {
 			  getSongsFeatures(songIds, token);
 	    }
 	   }
-//document.getElementById("parsed").innerHTML = JSON.stringify(response);
-//document.getElementById("parsed").innerHTML = response[0]["track"]["id"];
-
-	  
-
-           
-
-      
-	      /**
-	      logMessage("Album Name: " + JSON.parse(this.response).name, "output");
-	      logMessage("Release Date: " + JSON.parse(this.response).release_date, "output");
-	      logMessage("Number of Tracks: " + JSON.parse(this.response).tracks["total"], "output");
-	      */
-	    
-	
-	}
-
-	// important variable for putting into drawing part of program
-	//var songFeaturesArray = [];
-
+        
 	getSongsFromPlaylist()
-	
+		
+	/**
+	Function which posts another "GET" request from Spotify's API to obtain the features from each song through iteration.
+	Uses XMLHtppRequest() method to communicate with Spotify's server from the Web App.
+	When the XML method receives a response, stores response as an array of all dictionaries representing each song's features, as "songFeaturesArray".
+	*/
 	function getSongsFeatures(songIds, token) {
 	  var xhr = new XMLHttpRequest();
 
@@ -177,20 +154,13 @@ function bigApp() {
 	  xhr.send();
 		
 	  xhr.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	      //alert(this.response);
-	      //console.log(this.response);
-	      //console.log(JSON.parse(this.response).name);
-	      //console.log(this.response);
-	      
+	    if (this.readyState == 4 && this.status == 200) {	      
 	      console.log(this.response);
 	      console.log(typeof this.response);
 
 		  let songFeaturesObject = JSON.parse(this.response);
 	      //console.log(typeof response);
 	      songFeaturesObject = songFeaturesObject["audio_features"];
-
-		  // let songFeaturesArray = [];
 
 		  songFeaturesObject.forEach(function(r) {
 			
