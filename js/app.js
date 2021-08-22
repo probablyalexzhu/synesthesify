@@ -6,6 +6,7 @@ var finalToken = '';
 var totalRuns = 0;
 var oldEmbedURL = ''
 var timesClicked = 1;
+var timesClickedImage = 1;
 
 function counter() {
     if (timesClicked == 1) {   
@@ -17,6 +18,13 @@ function counter() {
       document.getElementById("reminder").style.visibility = "hidden";
       timesClicked++;
     }
+	if (timesClickedImage > 1) {
+		document.getElementById("downloader").style.visibility = "visible";
+		timesClickedImage++;
+	} else {
+		document.getElementById("downloader").style.visibility = "hidden";
+      	timesClickedImage++;
+	}
 }
 
 function parsePlaylist() {
