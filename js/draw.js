@@ -1,4 +1,4 @@
-function hugeApp(){
+function drawMain(){
 
     //**Important variables**
     //var image = document.querySelector("img");
