@@ -77,6 +77,7 @@ function hugeApp(){
     function getSongArray(){
         for(let i= 0;i<songFeaturesArray.length;i++){
             let obj = songFeaturesArray[i];
+            if(obj==null) continue;
             let tempo = obj.tempo;
             avg_tempo += tempo;
             let a;
@@ -156,7 +157,7 @@ function hugeApp(){
             let dance = obj.danceability;
             let f = 0.6 * (1-dance) + dance - (Math.random()/3);
             
-            songs[i] = new songData(a,b,c,d,e,f)
+            songs.push(new songData(a,b,c,d,e,f))
         }
         avg_tempo/=songFeaturesArray.length;
         console.log(songs);
