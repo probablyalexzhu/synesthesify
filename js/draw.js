@@ -148,7 +148,7 @@ function hugeApp(){
             }
     
             let acou = obj.acousticness;
-            let d = Math.floor(acou * 10 + 1);
+            let d = 1-acou;
             
             let bright = obj.valence;
             let e = Math.floor(bright * 10 + 1);
@@ -248,32 +248,33 @@ function hugeApp(){
         
         //texture -- fill it in with gradient
         let r4 = randomNumber(4);
+        let addTexture = song.texture*(section_size*1.4);
         switch(r4){
             case 4:
-                grad = ctx.createLinearGradient(tl.x,tl.y,br.x,br.y);
-                grad.addColorStop(0,numsToRGB(cur_rgb.r-15,cur_rgb.g-15,cur_rgb.b-15));
-                grad.addColorStop(1,numsToRGB(cur_rgb.r+15,cur_rgb.g+15,cur_rgb.b+15));
+                grad = ctx.createLinearGradient(tl.x+addTexture,tl.y+addTexture,br.x,br.y);
+                grad.addColorStop(0,numsToRGB(cur_rgb.r-45,cur_rgb.g-45,cur_rgb.b-45));
+                grad.addColorStop(1,numsToRGB(cur_rgb.r+45,cur_rgb.g+45,cur_rgb.b+45));
                 ctx.fillStyle = grad;
                 ctx.fillRect(tl.x,tl.y,br.x,br.y);
                 break;
             case 3:
-                grad = ctx.createLinearGradient(br.x,br.y,tl.x,tl.y);
-                grad.addColorStop(0,numsToRGB(cur_rgb.r-15,cur_rgb.g-15,cur_rgb.b-15));
-                grad.addColorStop(1,numsToRGB(cur_rgb.r+15,cur_rgb.g+15,cur_rgb.b+15));
+                grad = ctx.createLinearGradient(br.x,br.y,tl.x+addTexture,tl.y+addTexture);
+                grad.addColorStop(0,numsToRGB(cur_rgb.r-45,cur_rgb.g-45,cur_rgb.b-45));
+                grad.addColorStop(1,numsToRGB(cur_rgb.r+45,cur_rgb.g+45,cur_rgb.b+45));
                 ctx.fillStyle = grad;
                 ctx.fillRect(br.x,br.y,tl.x,tl.y);
                 break;
             case 2:
-                grad = ctx.createLinearGradient(br.x,tl.y,tl.x,br.y);
-                grad.addColorStop(0,numsToRGB(cur_rgb.r-15,cur_rgb.g-15,cur_rgb.b-15));
-                grad.addColorStop(1,numsToRGB(cur_rgb.r+15,cur_rgb.g+15,cur_rgb.b+15));
+                grad = ctx.createLinearGradient(br.x,tl.y+addTexture,tl.x+addTexture,br.y);
+                grad.addColorStop(0,numsToRGB(cur_rgb.r-45,cur_rgb.g-45,cur_rgb.b-45));
+                grad.addColorStop(1,numsToRGB(cur_rgb.r+45,cur_rgb.g+45,cur_rgb.b+45));
                 ctx.fillStyle = grad;
                 ctx.fillRect(br.x,tl.y,tl.x,br.y);
                 break;
             case 1:
-                grad = ctx.createLinearGradient(tl.x,br.y,br.x,tl.y);
-                grad.addColorStop(0,numsToRGB(cur_rgb.r-15,cur_rgb.g-15,cur_rgb.b-15));
-                grad.addColorStop(1,numsToRGB(cur_rgb.r+15,cur_rgb.g+15,cur_rgb.b+15));
+                grad = ctx.createLinearGradient(tl.x+addTexture,br.y,br.x,tl.y+addTexture);
+                grad.addColorStop(0,numsToRGB(cur_rgb.r-45,cur_rgb.g-45,cur_rgb.b-45));
+                grad.addColorStop(1,numsToRGB(cur_rgb.r+45,cur_rgb.g+45,cur_rgb.b+45));
                 ctx.fillStyle = grad;
                 ctx.fillRect(tl.x,br.y,br.x,tl.y);
                 break;
