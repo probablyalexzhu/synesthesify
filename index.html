@@ -56,6 +56,12 @@ function DownloadCanvasAsImage(){
 }
 </script>
 
+<h2 class="explanation-header">IMPORTANT ❗</h2>
+<p class="explanation">We highly recommend you, the wonderful user, to put in playlists with more than 25 songs. The more music, the more art, and the better results! <br>
+  Sliders — leave them alone if you want the computer to do all the work for you (reccommended)! <br>
+  Or feel free to mess around with custom properties, which will override the sad computer 😢 <br>
+  Remember that you can always press "Create" again to generate new art!</p>
+
 <div class="sliders">
 
   <!--sliders-->
@@ -66,7 +72,7 @@ function DownloadCanvasAsImage(){
   
   <div class="Shape">
     <p id="Shape">Shape slider: 200 </p>
-    <input type="range" min="100" max="300" value="200" class="slider" id="myRange" onchange="updateShape(this.value);">  
+    <input type="range" min="0" max="300" value="200" class="slider" id="myRange" onchange="updateShape(this.value);">  
   </div>
   
   <div class="Brightness">
@@ -83,7 +89,20 @@ function DownloadCanvasAsImage(){
 <h2 class="explanation-header">Putting soul back into music 🎵</h2>
 <p class="explanation">Who knew algorithms could convey so much emotion? Synesthesify uses <a class="link" href="https://developer.spotify.com" target="_blank">Spotify API</a> and <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target = "_blank">JavaScript's canvas</a> to turn your playlists into abstract art. The colours, shapes, and design are generated based on musical analysis of your songs. It considers many factors such as danceability, acousticness, and tempo.</p>
 
-<br>
+<h3 class="explanation-header">Properties (aka the nitty gritty) 🔎</h3>
+<p class="explanation">Our handy JavaScript calls Spotify API and gets a list of characteristics for each song. <br>
+  We then use these attributes to create a list of properties which will be represented by art on your screen. <br>
+  <br>
+  Music properties → Art properties: <br>
+  Tempo → Hue <br>
+  Speechiness → Abstractness (aka how many shapes) <br>
+  Acousticness → Texture (aka quality of gradient) <br>
+  Energy → Shapes (triangles, circles, rectangles, line segments) <br>
+  Valence (mood) → Brightness <br>
+  Danceability → Opacity <br>
+  <br>
+  We then put every piece of unique art together side by side, creating a new and exciting piece of playlist art every single time!</p>
+
 <iframe width="15%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/582274578&color=%23ee0494&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/abivekardesler" title="MÜZİKPLAY" target="_blank" style="color: #cccccc; text-decoration: none;"><a href="https://soundcloud.com/abivekardesler/soul-and-mind-es-jammy-jams" title="Soul And Mind - E&#x27;s Jammy Jams Telifsiz Müzik" target="_blank" style="color: #cccccc; text-decoration: none;">Soul And Mind - E&#x27;s Jammy Jams Telifsiz Müzik</a></div>
 
 <p id="reminder">If this is your playlist, press Create again to generate your art. <br> (You can pause the background music by scrolling down and pressing pause)</p>  
