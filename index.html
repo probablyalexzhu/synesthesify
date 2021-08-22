@@ -1,4 +1,4 @@
-CTYPE html>
+<!DOCTYPE html>
 <html>
   
 <head>
@@ -24,14 +24,7 @@ CTYPE html>
 
 <input type="text" id="enterLink" value="" placeholder="Enter Spotify playlist link (https://open.spotify.com/playlist/...)">
   
-<button id="cd" class="button button1" onclick="cooldown(); bigApp();hugeApp()">Create</button>
-
-<script>
-  function cooldown () {
-    document.getElementById("cd").disabled = "true";     
-    setTimeout(function() {document.getElementById("cd").disabled = false;}, 1500);
-  }
-</script>
+<button class="button button1" onclick="bigApp();hugeApp()">Create</button>
   
 </p>
 
