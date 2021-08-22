@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="main.css">
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/draw.js"></script>
+  <script type="text/javascript" src="userSliders.js"></script>
 </head>
 
 <div class="parallax">
@@ -40,20 +41,28 @@
 <iframe id="embed" src=embedURL width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media" style="visibility: hidden"></iframe>
 
 <canvas id = "canvas" width = "500" height = "500"></canvas>
-  
-<button class="button button1" id="downloader" style="visibility: hidden" onclick="DownloadCanvasAsImage()">Download Image</button>
 
-<script>
-function DownloadCanvasAsImage(){
-  let downloadLink = document.createElement('a');
-  downloadLink.setAttribute('download', 'Synesthesify Art.png');
-  let canvas = document.getElementById('canvas');
-  let dataURL = canvas.toDataURL('image/png');
-  let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
-  downloadLink.setAttribute('href', url);
-  downloadLink.click();
-}
-</script>
+<div class="sliders">
+
+  <!--sliders-->
+  <p id="Abstractness">Abstractness slider: 100</p>
+  <input type="range" min="0" max="300" value="100" class="slider" id="myRange" onchange="updateAbstract(this.value);">
+  
+
+  <p id="Shape">Shape slider: 200 </p>
+  <input type="range" min="100" max="300" value="200" class="slider" id="myRange" onchange="updateShape(this.value);">
+  
+
+  <p id="Brightness">Brightness slider: 500</p>
+  <input type="range" min="100" max="1000" value="500" class="slider" id="myRange" onchange="updateBright(this.value);">
+  
+
+  <p id="Opacity">Opacity slider: 100</p>
+  <input type="range" min="0" max="100" value="100" class="slider" id="myRange" onchange="updateOpacity(this.value);">
+
+</div>
+
+
 
 <h2 class="explanation-header">Putting soul back into music 🎵</h2>
 <p class="explanation">Who knew algorithms could convey so much emotion? Synesthesify uses <a class="link" href="https://developer.spotify.com" target="_blank">Spotify API</a> and <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target = "_blank">JavaScript's canvas</a> to turn your playlists into abstract art. The colours, shapes, and design are generated based on musical analysis of your songs. It considers many factors such as danceability, acousticness, and tempo.</p>
@@ -73,7 +82,7 @@ function DownloadCanvasAsImage(){
 </style>
   
 <p id="reminder">If this is your playlist, press Create again to generate your art. <br> (You can pause the background music by scrolling down and pressing pause)</p>  
-  
+
 <footer>
   <p id="footer">Made with 💚 at <a class="link" href="https://devpost.com/software/synesthesify" target="_blank">Hack the 6ix 2021</a></p>
 </footer>
