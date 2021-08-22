@@ -55,6 +55,7 @@
   width:800px;
   height:50px;
   opacity:90%;
+  padding-left: 10px;
   font-size:24px;
   font-family: "Tahoma";
   background-color: #F0F2EB;
@@ -114,7 +115,7 @@ div.transbox {
   padding-left : 53%;
   padding-right : 5%;
   position : relative;
-  bottom : 1420px;
+  bottom : 1100px;
   font-size: 24px;
   visibility : hidden;
 }
@@ -137,4 +138,64 @@ div.transbox {
 
 .link {
   color: #3FBC90;
+}
+
+.Abstractness {
+  width: 500px;
+  position: relative;
+  display: inline-block;
+}
+
+.Shape {
+  width: 500px;
+  position: relative;
+  display: inline-block;
+}
+
+.Brightness {
+  width: 500px;
+  position: relative;
+  display: inline-block;
+}
+
+.Opacity {
+  width: 500px;
+  position: relative;
+  display: inline-block;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 5px;
+  border-radius: 5px;
+  background: #F0F2EB;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+    border-radius: 50%;
+  background: #3FBC90;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border: 0;
+    border-radius: 50%;
+  background: #3FBC90;
+  cursor: pointer;
 }
