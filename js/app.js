@@ -5,6 +5,19 @@ var songFeaturesArray = [];
 var finalToken = '';
 var totalRuns = 0;
 var oldEmbedURL = ''
+var timesClicked = 1;
+
+function counter() {
+    if (timesClicked == 1) {   
+		setTimeout(function() {
+			document.getElementById("reminder").style.visibility = "visible";
+      		timesClicked++;
+		}, 1000);
+	} else {
+      document.getElementById("reminder").style.visibility = "hidden";
+      timesClicked++;
+    }
+}
 
 function parsePlaylist() {
   let playlistURL = document.getElementById("enterLink").value; let playlistId=0;
