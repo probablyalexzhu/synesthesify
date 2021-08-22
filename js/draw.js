@@ -48,8 +48,10 @@ function hugeApp(){
     //helper methods
     function reset(){
         ctx.globalAlpha = 1;
-        ctx.fillStyle = "black"
-        ctx.fillRect(0,0,500,500);
+        ctx.strokeStyle = "black"
+        ctx.clearRect(0,0,500,500)
+        songs =[]; 
+        console.log(songs)
     }
     function randomNumber(size){
         const h = Math.random()*size+1;
@@ -87,22 +89,22 @@ function hugeApp(){
                     a = new rgb (245, 137, 10);
                     break;
                 
-                case tempo >= 140:
+                case tempo >= 141:
                     a = new rgb (245, 245, 10);
                     break;
-                case tempo >= 130:
+                case tempo >= 132:
                     a = new rgb(20, 240, 15);
                     break;
-                case tempo >= 120:
+                case tempo >= 125:
                     a = new rgb(20, 180, 15);
                     break;
-                case tempo >= 110:
+                case tempo >= 112:
                     a = new rgb(15, 210, 220);
                     break;
-                case tempo >= 100:
+                case tempo >= 101:
                     a = new rgb(15, 20, 224);
                     break;
-                case tempo >= 90:
+                case tempo >= 91:
                     a = new rgb(100, 30, 120);
                     break;
                 default:
@@ -154,6 +156,8 @@ function hugeApp(){
             songs[i] = new songData(a,b,c,d,e,f)
         }
         avg_tempo/=songFeaturesArray.length;
+        console.log(songs);
+        songFeaturesArray = [];
     }
     
     function getSectionCoordinates(numberOfSongs){
