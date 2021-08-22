@@ -105,6 +105,11 @@ div.transbox {
   padding-top: 100px;
 }
 
+#downloader {
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
 .explanation {
   text-align: left;
   font-size: 20px;
