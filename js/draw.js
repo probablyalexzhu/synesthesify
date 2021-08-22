@@ -136,7 +136,7 @@ function hugeApp(){
                 case energy > 0.75:
                     c = 3;
                     break;
-                case energy > 0.63:
+                case energy > 0.6:
                     c = 2;
                     break; 
                 case energy > 0.5:
@@ -301,34 +301,8 @@ function hugeApp(){
         //energy -- draw the shapes --circles,rectangles,lines
         let energy = song.shape;
         switch(energy){
-            case 3: //circle
-                for (let i = 0; i < shape_count; i++){
-                    ctx.beginPath();
-                    let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
-                    if(Math.random()<0.25) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
-                    else ctx.strokeStyle = "black";
-                    let centerx = randomNumber(section_size-2)+ tl.x;
-                    let centery = randomNumber(section_size-2)+ tl.y;
-                    let rad = randomNumber(section_size/2);
-                    ctx.arc(centerx , centery, rad, 0, 2*Math.PI);
-                    ctx.stroke();
-                }
-                break;
-    
-            case 2: //rectangle
-                for (let i = 0; i < shape_count; i++){
-                    let centerx = randomNumber(section_size-2)+tl.x;
-                    let centery = randomNumber(section_size-2) + tl.y;
-                    let len = randomNumber(section_size-2);
-                    let width = randomNumber(section_size-2);
-                    let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
-                    if(Math.random()<0.3) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
-                    else ctx.strokeStyle = "black";
-                    ctx.strokeRect(centerx,centery,centerx+len,centery+width);
-                }
-                break;
 
-            case 1: //triangle
+            case 3: //triangle
                 for (let i = 0; i < shape_count; i++){
                     let point1 = {'x' :randomNumber(section_size-2)+tl.x, 'y': randomNumber(section_size-2)+tl.y};
                     let point2 = {'x' :randomNumber(section_size-2)+tl.x, 'y': randomNumber(section_size-2)+tl.y};
@@ -342,6 +316,33 @@ function hugeApp(){
 
                 }
             
+            case 2: //circle
+                for (let i = 0; i < shape_count; i++){
+                    ctx.beginPath();
+                    let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
+                    if(Math.random()<0.25) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
+                    else ctx.strokeStyle = "black";
+                    let centerx = randomNumber(section_size-2)+ tl.x;
+                    let centery = randomNumber(section_size-2)+ tl.y;
+                    let rad = randomNumber(section_size/2);
+                    ctx.arc(centerx , centery, rad, 0, 2*Math.PI);
+                    ctx.stroke();
+                }
+                break;
+    
+            case 1: //rectangle
+                for (let i = 0; i < shape_count; i++){
+                    let centerx = randomNumber(section_size-2)+tl.x;
+                    let centery = randomNumber(section_size-2) + tl.y;
+                    let len = randomNumber(section_size-2);
+                    let width = randomNumber(section_size-2);
+                    let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
+                    if(Math.random()<0.3) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
+                    else ctx.strokeStyle = "black";
+                    ctx.strokeRect(centerx,centery,centerx+len,centery+width);
+                }
+                break;
+
             case 0: //line
                 for (let i = 0; i < shape_count; i++){
                     let firstx = randomNumber(section_size+300)+tl.x;
