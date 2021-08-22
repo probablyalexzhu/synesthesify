@@ -158,12 +158,15 @@ function hugeApp(){
         arr = [];
         for(i=0;i+size<=canvasSize;i+=size){
             for(j=0;j+size<=canvasSize;j+=size){
-                arr.push(new rectangle(i,j,i+size,j+size))
+                let random123 = randomNumber(size/3);
+                let random1234 = randomNumber(size/3);
+                arr.push(new rectangle(i,j,i+size+random123,j+size+random1234))
             }
         }
         for(i=0;i<leftover;i++){
             let randomx = randomNumber(canvasSize-size)-1;
             let randomy = randomNumber(canvasSize-size)-1;
+
             arr.push(new rectangle(randomx,randomy,randomx+size,randomy+size));
         }
         return arr;
@@ -181,22 +184,22 @@ function hugeApp(){
     function drawBackground(avg_tempo){
         let a;
         switch(true){
-            case avg_tempo >= 160:
+            case avg_tempo >= 155:
                 a = new rgb(240, 10 , 10);
                 break;
-            case avg_tempo >= 150:
+            case avg_tempo >= 145:
                 a = new rgb (245, 137, 10);
                 break;
-            case avg_tempo >= 140:
+            case avg_tempo >= 135:
                 a = new rgb (245, 245, 10);
                 break;
-            case avg_tempo >= 130:
+            case avg_tempo >= 125:
                 a = new rgb(20, 240, 15);
                 break;
-            case avg_tempo >= 120:
+            case avg_tempo >= 114:
                 a = new rgb(20, 180, 15);
                 break;
-            case avg_tempo >= 110:
+            case avg_tempo >= 107:
                 a = new rgb(15, 210, 220);
                 break;
             case avg_tempo >= 100:
@@ -220,7 +223,7 @@ function hugeApp(){
         let br = coords.br;
         //opacity -- set opacity, change stroke size
         ctx.globalAlpha=song.opacity;
-        ctx.lineWidth=song.opacity * 7;
+        ctx.lineWidth=song.opacity * 6;
         //hue -- get base color
         let cur_rgb  = song.hue;
         //brightness -- change the hue by certain amount, add randomness
@@ -229,11 +232,7 @@ function hugeApp(){
         cur_rgb.r+=bright-10+r1;
         cur_rgb.g+=bright-10+r2;
         cur_rgb.b+=bright-10+r3;
-        //CHANGE COLLOR OF STROKE!!!!!!!!!
-        let red_r = randomNumber(255), green_r = randomNumber(255), blue_r = randomNumber(255);
         
-        if(Math.random()<0.2) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
-        else ctx.strokeStyle = "black";
         //texture -- fill it in with gradient
         let r4 = randomNumber(4);
         switch(r4){
@@ -273,7 +272,7 @@ function hugeApp(){
         
         switch(abst){
             case 3:
-                shape_count=3;
+                shape_count=2;
                 break;
             case 2:
                 shape_count = 2;
@@ -292,6 +291,9 @@ function hugeApp(){
             case 3:
                 for (let i = 0; i < shape_count; i++){
                     ctx.beginPath();
+                    let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
+                    if(Math.random()<0.25) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
+                    else ctx.strokeStyle = "black";
                     let centerx = randomNumber(section_size-2)+ tl.x;
                     let centery = randomNumber(section_size-2)+ tl.y;
                     let rad = randomNumber(section_size/2);
@@ -306,6 +308,9 @@ function hugeApp(){
                     let centery = randomNumber(section_size-2) + tl.y;
                     let len = randomNumber(section_size-2);
                     let width = randomNumber(section_size-2);
+                    let red_r = randomNumber(200), green_r = randomNumber(200), blue_r = randomNumber(200);
+                    if(Math.random()<0.3) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
+                    else ctx.strokeStyle = "black";
                     ctx.strokeRect(centerx,centery,centerx+len,centery+width);
                 }
                 break;
@@ -316,6 +321,9 @@ function hugeApp(){
                     let secondx = randomNumber(section_size+300)+tl.x;
                     let secondy = randomNumber(section_size+300)+tl.y;
                     ctx.beginPath();
+                    let red_r = randomNumber(255), green_r = randomNumber(200), blue_r = randomNumber(200);
+                    if(Math.random()<0.28) ctx.strokeStyle = numsToRGB(red_r,green_r,blue_r);
+                    else ctx.strokeStyle = "black";
                     ctx.moveTo(firstx,firsty);
                     ctx.lineTo(secondx,secondy);
                     ctx.stroke();
