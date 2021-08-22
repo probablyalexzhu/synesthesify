@@ -46,6 +46,10 @@ function hugeApp(){
     
     
     //helper methods
+    function reset(){
+        ctx.fillStyle = "white"
+        ctx.fillRect(0,0,500,500);
+    }
     function randomNumber(size){
         const h = Math.random()*size+1;
         return Math.floor(h);
@@ -62,6 +66,7 @@ function hugeApp(){
     
     //run functions
     let avg_tempo = 0;
+    reset();
     getSongArray();
     drawFromArray();
     //main functions
