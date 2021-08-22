@@ -47,7 +47,8 @@ function hugeApp(){
     
     //helper methods
     function reset(){
-        ctx.fillStyle = "white"
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = "black"
         ctx.fillRect(0,0,500,500);
     }
     function randomNumber(size){
