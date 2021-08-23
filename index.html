@@ -47,10 +47,10 @@
 <script>
 function DownloadCanvasAsImage(){
   let downloadLink = document.createElement('a');
-  downloadLink.setAttribute('download', 'Synesthesify Art.png');
+  downloadLink.setAttribute('download', 'Synesthesify Art.jpg');
   let canvas = document.getElementById('canvas');
-  let dataURL = canvas.toDataURL('image/png');
-  let url = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
+  let dataURL = canvas.toDataURL('image/jpg');
+  let url = dataURL.replace(/^data:image\/jpg/,'data:application/octet-stream');
   downloadLink.setAttribute('href', url);
   downloadLink.click();
 }
